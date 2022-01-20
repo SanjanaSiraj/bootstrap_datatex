@@ -1,0 +1,7 @@
+backend/node_modules
+backend/.env
+backend/dev.js
+frontend/node_modules
+.idea
+frontend/package-lock.json
+backend/package-lock.json
