@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Nav, Navbar} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import './Brand.css'
 
 function Contact(propes){
 
@@ -25,7 +26,7 @@ function Contact(propes){
             flexDirection: 'column'
         }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Button variant="dark" size='lg' onClick={clickedPage1} >D datatex</Button>
+                <Button variant="dark" onClick={clickedPage1} className={'Brand'}>D datatex</Button>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">

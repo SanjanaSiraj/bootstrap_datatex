@@ -6,6 +6,7 @@ import logo1 from '../Images/img8.jpg';
 import logo2 from '../Images/img4.jpg';
 import logo3 from '../Images/img7.jpg';
 import logo4 from '../Images/img1.jpg';
+import './Brand.css'
 
 function Home(propes) {
     const [index, setIndex] = useState(0);
@@ -34,7 +35,7 @@ function Home(propes) {
             height: '200px'
         }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Button variant="dark" size='lg' onClick={clickedPage1} >D datatex</Button>
+                <Button variant="dark" onClick={clickedPage1} className={'Brand'}>D datatex</Button>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -119,7 +120,7 @@ function Home(propes) {
                         <br/>
                         <h4>Join us today!</h4>
                         <br/>
-                        <Button variant="dark" onClick={clickedPage4}>Sign Up</Button>
+                        <Button variant="dark" onClick={clickedPage4}>Get Started</Button>
                     </p>
                 </div>
             </div>

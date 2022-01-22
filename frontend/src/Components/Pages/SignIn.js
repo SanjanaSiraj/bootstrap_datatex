@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Button, Nav, Navbar} from "react-bootstrap";
+import {Button, Form, Nav, Navbar} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
+import './Brand.css'
 
 function SignIn(propes){
 
@@ -19,13 +20,18 @@ function SignIn(propes){
     const clickedPage5=()=>{
         propes.nav(5)
     }
+
+    function clickedSignIn() {
+
+    }
+
     return(
         <div style={{
             display:'flex',
             flexDirection: 'column'
         }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Button variant="dark" size='lg' onClick={clickedPage1} >D datatex</Button>
+                <Button variant="dark" onClick={clickedPage1} className={'Brand'}>D datatex</Button>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -39,7 +45,27 @@ function SignIn(propes){
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-            <h1>Sign In</h1>
+            <Form style={{
+                alignSelf:'center',
+                marginTop: '50px',
+                marginBottom:'50px',
+                width:'700px',
+                height:'300px',
+            }}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Enter Email" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicSubmit">
+                    <Button variant="dark" onClick={clickedSignIn}>Submit</Button>
+                </Form.Group>
+                <br/>
+                <br/>
+            </Form>
         </div>
     )
 }
