@@ -13,13 +13,8 @@ class AuthController {
             });
         } else {
             switch (result.error){
-                case process.env.ERROR_NO_USER:
+                case process.env.ERROR_EMAIL_EXISTS:
                     res.status(404).json({
-                        success: false
-                    });
-                    break;
-                case process.env.ERROR_PASSWORD_MISMATCH:
-                    res.status(401).json({
                         success: false
                     });
                     break;

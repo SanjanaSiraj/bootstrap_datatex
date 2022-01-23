@@ -11,7 +11,7 @@ router.post('/signin',authController.signin)
 router.post('/resetPass',authController.resetPassword)
 
 //these part only for admins
-router.get('/getStaffs',adminMiddleWare,authController.getEmployees)//admin can see all staffs
-router.post('/addStaff',adminMiddleWare,authController.addStaff)//admin can see all staffs
-router.delete('/delete/:id',adminMiddleWare,authController.delete)//admin can delete any staff
+router.get('/getStaffs',authController.getEmployees)//admin can see all staffs
+router.post('/addStaff',authController.addStaff)//admin can see all staffs
+router.delete('/delete/:id',authController.delete)//admin can delete any staff
 module.exports=router

@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, useRef, useState} from 'react';
 import {Button, Form, Nav, Navbar} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import './Brand.css'
+import {showToast} from "../../App";
+import {login} from "../../action/auth";
 
 function SignIn(propes){
 
@@ -21,8 +23,31 @@ function SignIn(propes){
         propes.nav(5)
     }
 
-    function clickedSignIn() {
+    const emailRef=useRef();
+    const passRef=useRef();
 
+    const validateEmail=email=> {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    const [val,setVal]=useState('')
+
+    const onSubmit = () => {
+        console.log(val);
+    };
+
+    function clickedSignIn() {
+        const email=emailRef.current.value
+        const password=passRef.current.value
+        console.log(email,password)
+        if(!validateEmail(email))
+            showToast('Please enter a valid email address')
+       /* else if (password.length<6)
+            showToast('Password length must be greater or equals to 6')*/
+        else{
+            login(email,password,propes)
+        }
     }
 
     return(
@@ -52,16 +77,17 @@ function SignIn(propes){
                 width:'700px',
                 height:'300px',
             }}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" controlId="formBasicEmail"
+                            >
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter Email" />
+                    <Form.Control ref={emailRef} type="email" placeholder="Enter Email" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3" controlId="formBasicPassword" >
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control ref={passRef} type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicSubmit">
-                    <Button variant="dark" onClick={clickedSignIn}>Submit</Button>
+                    <Button onClick={clickedSignIn} variant="dark" >Submit</Button>
                 </Form.Group>
                 <br/>
                 <br/>

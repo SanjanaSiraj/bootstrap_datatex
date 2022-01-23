@@ -45,7 +45,7 @@ class AuthRepository extends Repository{
         }
 
         const query='insert into users (name,phone,email,address,username,type,password,employee_id) values (:0,:1,:2,:3,:4,:5,:6,:7)'
-        const params=[data.name,data.phone,data.email,data.address,data.username,data.type,bcrypt.hashSync(data.password, 10),data.employee_id]
+        const params=[data.name,data.phone,data.email,data.address,data.username,2,bcrypt.hashSync(data.password, 10),data.employee_id]
         const result=await this.sqlQuery(query,params)
         console.log(result,'in sign up in auth repository cls')
         return result
