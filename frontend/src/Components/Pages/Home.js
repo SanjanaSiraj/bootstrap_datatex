@@ -55,14 +55,13 @@ function Home(propes) {
                 flexDirection:"row-reverse"
             }}>
                 <Carousel variant="dark" style={{
-                    width:'600px'
+                    width:'40%'
                 }}>
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
                             src= {logo1}
                             alt="Logo"
-                            height="600px"
                         />
                         <Carousel.Caption>
                             <h5>First slide label</h5>
@@ -74,7 +73,6 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo2}
                             alt="Logo"
-                            height="600px"
                         />
                         <Carousel.Caption>
                             <h5>Second slide label</h5>
@@ -86,7 +84,6 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo3}
                             alt="Logo"
-                            height="600px"
                         />
                         <Carousel.Caption>
                             <h5>Third slide label</h5>
@@ -98,7 +95,6 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo4}
                             alt="Logo"
-                            height="600px"
                         />
                         <Carousel.Caption>
                             <h5>Fourth slide label</h5>
@@ -108,13 +104,13 @@ function Home(propes) {
                 </Carousel>
                 <div style={{
                     background:'black',
-                    width: '800px',
+                    width: '60%',
                 }}>
                     <p style={{
                         color: 'white',
                         marginInlineStart: '40px',
                         marginInlineEnd: '40px',
-                        marginTop: '170px'
+                        marginTop: '25%'
                     }}>
                         <h3>Datatex brings all your industry's information all in one platform. Create your own portable workspace. </h3>
                         <br/>
