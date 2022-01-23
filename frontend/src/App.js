@@ -5,30 +5,51 @@ import About from "./Components/Pages/About";
 import Contact from "./Components/Pages/Contact";
 import SignIn from "./Components/Pages/SignIn";
 import SignUp from "./Components/Pages/SignUp";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Loader from "react-loader-spinner";
+import {Dialog, DialogContent} from "@mui/material";
+import Route from "./Route";
+import loader from './Components/Images/loader.gif'
+var showToast
+var setLoading
 
 function App() {
-    const [pageState,setState]=useState(1)
+
+    const [loading,setL]=useState(false)
+    setLoading=setL
+    showToast=message=>{
+        toast.dark(message, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }
     return(
         <div>
-            {
-                pageState===1?(
-                    <Home nav={setState}/>
-                ):(
-                    pageState===2?(
-
-                        <About nav={setState}/>
-                    ):(
-                        pageState===3?(
-                            <Contact nav={setState}/>
-                        ):(
-                            pageState===4?(
-                                <SignUp nav={setState}/>
-                            ):<SignIn nav={setState}/>
-                        )
-                    )
-                )
-            }
+            <Dialog open={loading}>
+                <DialogContent>
+                    <img src={loader} alt="loading..." />
+                </DialogContent>
+            </Dialog>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+            <Route/>
         </div>
     )
 }
 export default App
+export {showToast,setLoading}
