@@ -3,6 +3,6 @@ const router = require('express').Router()
 
 const buyerController=new BuyerController()
 router.post('/order',buyerController.order)
-router.get('/catalogs',buyerController.getCatalogs)
+router.post('/catalogs',buyerController.getCatalogs)
 
 module.exports=router

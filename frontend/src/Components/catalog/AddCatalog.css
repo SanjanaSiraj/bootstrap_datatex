@@ -1,0 +1,7 @@
+.image{
+    border: 2px solid darkorange;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: 150px;
+    width: 150px;
+}
