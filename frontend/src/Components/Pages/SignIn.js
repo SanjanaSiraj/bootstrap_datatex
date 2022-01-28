@@ -22,6 +22,12 @@ function SignIn(propes){
     const clickedPage5=()=>{
         propes.nav(5)
     }
+    const clickedPage6=()=>{
+        propes.nav(6)
+    }
+    const clickedPage7=()=>{
+        propes.nav(7)
+    }
 
     const emailRef=useRef();
     const passRef=useRef();
@@ -62,10 +68,11 @@ function SignIn(propes){
                     <Nav className="me-auto">
                         <Button variant="dark" onClick={clickedPage2}>About</Button>
                         <Button variant="dark" onClick={clickedPage3}>Contact</Button>
+                        <Button variant="dark" onClick={clickedPage7}>Products</Button>
                     </Nav>
                     <Nav>
                         <Button variant="dark" onClick={clickedPage4}>Sign Up</Button>
-                        <Button variant="dark" onClick={clickedPage5}>Sign In</Button>{' '}
+                        <Button variant="dark" onClick={clickedPage5}>Sign In</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
@@ -87,8 +94,10 @@ function SignIn(propes){
                     <Form.Control ref={passRef} type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicSubmit">
-                    <Button onClick={clickedSignIn} variant="dark" >Submit</Button>
+                    <Button onClick={clickedSignIn} variant="dark">Submit</Button>
                 </Form.Group>
+                {/*buyer function*/}
+                <h6>Looking to place an order? Click <a onClick={clickedPage6} className={"buyerLink"}>here</a> to sign in as a buyer.</h6>
                 <br/>
                 <br/>
             </Form>
