@@ -4,14 +4,17 @@ import About from "./Components/Pages/About";
 import Contact from "./Components/Pages/Contact";
 import SignUp from "./Components/Pages/SignUp";
 import SignIn from "./Components/Pages/SignIn";
+import Catalog from "./Components/catalog/Catalog";
 import AfterLogin from "./Components/Pages/AfterLogin";
+import AddCatalog from "./Components/catalog/AddCatalog";
+import Catagories from "./Components/catalog/Catagories";
+
+var setPage
 function Route(){
-    const [pageState,setState]=useState(1)
 
-    // useEffect(()=>{
-    //     console.log(pageState)
-    // },[pageState])
-
+    const [pageState,setState]=useState(7)
+    setPage=setState
+    const[dataFromSibling,setDataFromSibling]=useState(null)
     return(
         <div>
             {
@@ -29,10 +32,23 @@ function Route(){
                                 <SignUp nav={setState}/>
                             ):(
                                 pageState===6?(
-                                     <AfterLogin nav={setState}/>
+                                    <AfterLogin nav={setState}/>
+                                ):(
+                                    pageState===5?(
+                                        <SignIn nav={setState}/>
                                     ):(
-                                    <SignIn nav={setState}/>
+                                        pageState===7?(
+                                            <Catalog nav={setState} setFabricType={setDataFromSibling}/>
+                                        ):(
+                                            pageState===8?(
+                                                <Catagories nav={setState} type={dataFromSibling}/>
+                                                ):(
+                                                <AfterLogin />
+                                                )
+
+                                        )
                                     )
+                                )
 
                             )
                         )
@@ -43,3 +59,6 @@ function Route(){
     )
 }
 export default Route
+export {setPage}
+
+
