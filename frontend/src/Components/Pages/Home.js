@@ -6,6 +6,7 @@ import logo1 from '../Images/img8.jpg';
 import logo2 from '../Images/img4.jpg';
 import logo3 from '../Images/img7.jpg';
 import logo4 from '../Images/img1.jpg';
+import Fab from '../Images/fab.png'
 import './Brand.css'
 
 function Home(propes) {
@@ -28,6 +29,9 @@ function Home(propes) {
     const clickedPage5=()=>{
         propes.nav(5)
     }
+    const clickedPage7=()=>{
+        propes.nav(7)
+    }
     return(
         <div style={{
             display:'flex',
@@ -35,12 +39,14 @@ function Home(propes) {
             height: '200px'
         }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
+                {/*<img src={Fab} className={'Fab'}/>*/}
                 <Button variant="dark" onClick={clickedPage1} className={'Brand'}>D datatex</Button>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Button variant="dark" onClick={clickedPage2}>About</Button>
                         <Button variant="dark" onClick={clickedPage3}>Contact</Button>
+                        <Button variant="dark" onClick={clickedPage7}>Products</Button>
                     </Nav>
                     <Nav>
                         <Button variant="dark" onClick={clickedPage4}>Sign Up</Button>
@@ -57,7 +63,7 @@ function Home(propes) {
                 <Carousel variant="dark" style={{
                     width:'40%'
                 }}>
-                    <Carousel.Item>
+                    <Carousel.Item interval={2000}>
                         <img
                             className="d-block w-100"
                             src= {logo1}
@@ -68,7 +74,7 @@ function Home(propes) {
                             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item>
+                    <Carousel.Item interval={2000}>
                         <img
                             className="d-block w-100"
                             src= {logo2}
@@ -79,7 +85,7 @@ function Home(propes) {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item>
+                    <Carousel.Item interval={2000}>
                         <img
                             className="d-block w-100"
                             src= {logo3}
@@ -90,7 +96,7 @@ function Home(propes) {
                             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
-                    <Carousel.Item>
+                    <Carousel.Item interval={2000}>
                         <img
                             className="d-block w-100"
                             src= {logo4}

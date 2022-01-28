@@ -12,7 +12,7 @@ import Catagories from "./Components/catalog/Catagories";
 var setPage
 function Route(){
 
-    const [pageState,setState]=useState(7)
+    const [pageState,setState]=useState(1)
     setPage=setState
     const[dataFromSibling,setDataFromSibling]=useState(null)
     return(

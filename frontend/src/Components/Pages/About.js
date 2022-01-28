@@ -20,6 +20,9 @@ function About(propes){
     const clickedPage5=()=>{
         propes.nav(5)
     }
+    const clickedPage7=()=>{
+        propes.nav(7)
+    }
     return(
         <div style={{
             display:'flex',
@@ -32,10 +35,11 @@ function About(propes){
                     <Nav className="me-auto">
                         <Button variant="dark" onClick={clickedPage2}>About</Button>
                         <Button variant="dark" onClick={clickedPage3}>Contact</Button>
+                        <Button variant="dark" onClick={clickedPage7}>Products</Button>
                     </Nav>
                     <Nav>
                         <Button variant="dark" onClick={clickedPage4}>Sign Up</Button>
-                        <Button variant="dark" onClick={clickedPage5}>Sign In</Button>{' '}
+                        <Button variant="dark" onClick={clickedPage5}>Sign In</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

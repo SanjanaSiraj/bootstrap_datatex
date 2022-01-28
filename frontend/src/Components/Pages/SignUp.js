@@ -22,6 +22,9 @@ function SignUp(propes){
     const clickedPage5=()=>{
         propes.nav(5)
     }
+    const clickedPage7=()=>{
+        propes.nav(7)
+    }
 
     const validateEmail=email=> {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -88,6 +91,7 @@ function SignUp(propes){
                     <Nav className="me-auto">
                         <Button variant="dark" onClick={clickedPage2}>About</Button>
                         <Button variant="dark" onClick={clickedPage3}>Contact</Button>
+                        <Button variant="dark" onClick={clickedPage7}>Products</Button>
                     </Nav>
                     <Nav>
                         <Button variant="dark" onClick={clickedPage4}>Sign Up</Button>
@@ -138,6 +142,8 @@ function SignUp(propes){
                 <Form.Group className="mb-3" controlId="formBasicSubmit">
                     <Button variant="dark" onClick={clickedSignUp}>Submit</Button>
                 </Form.Group>
+                <br/>
+                <h6> Already have an account or looking to just place an order? Click <a onClick={clickedPage5} className={"buyerLink"}>here</a> to sign in as an employee or a buyer.</h6>
                 <br/>
                 <br/>
             </Form>
