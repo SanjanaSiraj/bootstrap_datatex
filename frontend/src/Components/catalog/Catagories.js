@@ -4,7 +4,7 @@ import {Box, Container, Grid, Typography} from "@mui/material";
 import img1 from '../Images/img1.jpg'
 import FabricCard from "./FabricCard";
 import {getCatalogs} from "../../action/buyer";
-import {Button} from "react-bootstrap";
+import {Button, Navbar} from "react-bootstrap";
 import '../Pages/Brand.css'
 import {setLoading, showToast} from "../../App";
 function Catagories(props){
@@ -26,24 +26,34 @@ function Catagories(props){
         console.log('clicked')
         props.nav(7)
     }
+
+    const[username,setUsername]=useState(null)
+
+    const clickedPage1=()=>{
+        props.nav(1)
+    }
+
+    useEffect(()=>{
+        console.log(props.type)
+        setUsername(props.type.username)
+    },[props.type])
     return(
         <div >
-            <div className='header' >
-                <span className='logo-container' >
-                    <Button style={{backgroundColor:'white',color:'black'}} variant={'text'} className={'Brand'}>D datatex</Button>
-                </span>
-
-                <div className='options'onClick={clickedbACK}>
-                    <div className='option' >
-                        BACK2
-                    </div>
-                </div>
-            </div>
-            <center className={'header_Text'}>
-                <Typography variant="h3" color="black"  className={'heading_center'}>
-                    {props.type.toUpperCase()}
-                </Typography>
-            </center>
+            <Navbar bg="dark" variant="dark" style={{ height:'80px'}}>
+                <Container>
+                    <Button variant="dark" className={'Brand'}>D datatex</Button>
+                    <Navbar.Toggle />
+                    <Navbar.Collapse className="justify-content-end">
+                        <Navbar.Text>
+                            Signed in as: <a href="#login">{username}</a>
+                        </Navbar.Text>
+                        <Navbar.Text style={{
+                            marginLeft: '10px'
+                        }}>|</Navbar.Text>
+                        <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
             <Box>
                 <Grid style={{padding:'10px'}} container spacing={2}>
                     {
