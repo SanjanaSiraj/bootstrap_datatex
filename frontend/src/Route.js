@@ -39,7 +39,7 @@ function Route(){
                                         <SignIn nav={setState} />
                                     ):(
                                         pageState===7?(
-                                            <Catalog nav={setState} setFabricType={setDataFromSibling}/>
+                                            <Catalog nav={setState} setFabricType={setDataFromSibling} type={dataFromSibling}/>
                                         ):(
                                             pageState===8?(
                                                 <Catagories nav={setState} type={dataFromSibling}/>

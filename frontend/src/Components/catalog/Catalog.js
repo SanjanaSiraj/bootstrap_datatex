@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './Catalog.css'
 import {setPage} from "../../Route";
 import Container from "react-bootstrap/Container";
@@ -12,9 +12,19 @@ function Catalog(propes){
         //propes.nav(8)
         setPage(8)
     }
+    const[username,setUsername]=useState(null)
+
     const clickedPage1=()=>{
         propes.nav(1)
     }
+
+    useEffect(()=>{
+
+        if(propes.type!==null&&propes.type!==undefined) {
+            console.log(propes.type)
+            setUsername(propes.type.username)
+        }
+    },[propes.type])
     return(
         <div>
             <Navbar bg="dark" variant="dark" style={{ height:'80px',width:'100vw'}}>
@@ -23,7 +33,7 @@ function Catalog(propes){
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            Signed in as: <a href="#login">Mark Otto</a>
+                            Signed in as: <a href="#login">{username}</a>
                         </Navbar.Text>
                         <Navbar.Text style={{
                             marginLeft: '10px'

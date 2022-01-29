@@ -36,7 +36,8 @@ class AuthController {
                 success:true,
                 token:result.token,
                 user_id:result.user_id,
-                username:result.user_name
+                username:result.user_name,
+                type:result.user_type,
             });
         } else {
             switch (result.error){

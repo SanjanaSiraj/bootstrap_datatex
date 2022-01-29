@@ -1,6 +1,6 @@
 import axios from "axios";
 import {setLoading, showToast} from "../App";
-import {passData} from "../Route";
+import {passData, setPage} from "../Route";
 
 export const login=async (email, password,propes)=>{
     setLoading(true)
@@ -10,7 +10,10 @@ export const login=async (email, password,propes)=>{
     }).then(res=>{
         console.log(res.data)
          passData(res.data)
-         propes.nav(6)
+
+         if(res.data.type===3)
+             setPage(7)
+         else setPage(6)
 
     }).catch(err=>{
         if(err.response.status===401){
