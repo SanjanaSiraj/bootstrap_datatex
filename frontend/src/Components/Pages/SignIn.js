@@ -57,49 +57,51 @@ function SignIn(propes){
     }
 
     return(
-        <div style={{
-            display:'flex',
-            flexDirection: 'column'
-        }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Container>
-                <Button variant="dark" onClick={clickedPage1} className={'Brand'}>D datatex</Button>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <Button variant="dark" onClick={clickedPage2}>About</Button>
-                        <Button variant="dark" onClick={clickedPage3}>Contact</Button>
-                        <Button variant="dark" onClick={clickedPage7}>Products</Button>
-                    </Nav>
-                    <Nav>
-                        <Button variant="dark" onClick={clickedPage4}>Sign Up</Button>
-                        <Button variant="dark" onClick={clickedPage5}>Sign In</Button>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
-            <Form style={{
-                alignSelf:'center',
-                marginTop: '50px',
-                marginBottom:'50px',
-                width:'700px',
-                height:'300px',
-            }}>
-                <Form.Group className="mb-3" controlId="formBasicEmail"
-                            >
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control ref={emailRef} type="email" placeholder="Enter Email" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword" >
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control ref={passRef} type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicSubmit">
-                    <Button onClick={clickedSignIn} variant="dark">Submit</Button>
-                </Form.Group>
-                {/*buyer function*/}
-                <h6>Looking to place an order? Click <a onClick={clickedPage6} className={"buyerLink"}>here</a> to sign in as a buyer.</h6>
-                <br/>
-                <br/>
+        <div >
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height:'80px', backgroundColor:'green'}}>
+                <Container>
+                    <Button variant="dark" onClick={clickedPage1} className={'Brand'}>D datatex</Button>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto">
+                            <Button variant="dark" onClick={clickedPage2}>About</Button>
+                            <Button variant="dark" onClick={clickedPage3}>Contact</Button>
+                            <Button variant="dark" onClick={clickedPage7}>Products</Button>
+                        </Nav>
+                        <Nav>
+                            <Button variant="dark" onClick={clickedPage4}>Sign Up</Button>
+                            <Button variant="dark" onClick={clickedPage5}>Sign In</Button>{' '}
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+
+            <Form  style={{position: 'absolute',
+
+                width: '50%',
+                height: '300px',
+
+                /* Center form on page horizontally & vertically */
+                top: '10%',
+                left: '20%',}
+            }>
+                    <Form.Group className="mb-3" controlId="formBasicEmail"
+                    >
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control ref={emailRef} type="email" placeholder="Enter Email" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword" >
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control ref={passRef} type="password" placeholder="Password" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicSubmit">
+                        <Button onClick={clickedSignIn} variant="dark">Submit</Button>
+                    </Form.Group>
+                    buyer function
+                    <h6>Looking to place an order? Click <a onClick={clickedPage6} className={"buyerLink"}>here</a> to sign in as a buyer.</h6>
+                    <br/>
+                    <br/>
+
             </Form>
         </div>
     )

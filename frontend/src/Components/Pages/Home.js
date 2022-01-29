@@ -36,8 +36,8 @@ function Home(propes) {
         <div style={{
             display:'flex',
             flexDirection: 'column',
-            height: '200px'
-        }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            height: '100vh'
+        }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height:'90px'}}>
             <Container>
                 {/*<img src={Fab} className={'Fab'}/>*/}
                 <Button variant="dark" onClick={clickedPage1} className={'Brand'}>D datatex</Button>
@@ -58,16 +58,16 @@ function Home(propes) {
             {/*<img src={logo} alt="Logo" />*/}
             <div style={{
                 display:"flex",
-                flexDirection:"row-reverse"
+                flexDirection:"row-reverse",
+                height:'calc(100vh-200px)'
             }}>
-                <Carousel variant="dark" style={{
-                    width:'40%'
-                }}>
+                <Carousel variant="dark"  className={'carousel-image'}>
                     <Carousel.Item interval={2000}>
                         <img
                             className="d-block w-100"
                             src= {logo1}
                             alt="Logo"
+                            style={{height:'calc(100vh-200px)'}}
                         />
                         <Carousel.Caption>
                             <h5>First slide label</h5>
@@ -79,6 +79,7 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo2}
                             alt="Logo"
+                            style={{height:'calc(100vh-200px)'}}
                         />
                         <Carousel.Caption>
                             <h5>Second slide label</h5>
@@ -88,6 +89,7 @@ function Home(propes) {
                     <Carousel.Item interval={2000}>
                         <img
                             className="d-block w-100"
+                            style={{height:'calc(100vh-200px)'}}
                             src= {logo3}
                             alt="Logo"
                         />
@@ -100,6 +102,7 @@ function Home(propes) {
                         <img
                             className="d-block w-100"
                             src= {logo4}
+                            style={{height:'calc(100vh-200px)'}}
                             alt="Logo"
                         />
                         <Carousel.Caption>

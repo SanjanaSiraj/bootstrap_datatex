@@ -75,7 +75,8 @@ class AuthRepository extends Repository{
             }, process.env.JWT_SECRET_KEY, {expiresIn: `${tokenExpiryDuration}s`})
             return {
                 success: true,
-                token: token
+                user_id:result.data[0]['ID'],
+                user_name:result.data[0]['USERNAME'],
             }
         }
         return {
