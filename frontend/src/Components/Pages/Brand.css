@@ -8,3 +8,10 @@
     width: 60px;
     height: 60px;
 }
+.carousel-image{
+    width: 50%;
+}
+.carousel-image img{
+    width:40%;
+    height:calc(100vh - 91px);
+}

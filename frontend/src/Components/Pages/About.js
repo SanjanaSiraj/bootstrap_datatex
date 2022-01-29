@@ -27,7 +27,7 @@ function About(propes){
         <div style={{
             display:'flex',
             flexDirection: 'column'
-        }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height:'80px'}}>
             <Container>
                 <Button variant="dark" onClick={clickedPage1} className={'Brand'}>D datatex</Button>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

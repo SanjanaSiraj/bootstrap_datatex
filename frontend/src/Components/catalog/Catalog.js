@@ -1,6 +1,8 @@
 import React from "react";
 import './Catalog.css'
 import {setPage} from "../../Route";
+import Container from "react-bootstrap/Container";
+import {Button, Navbar} from "react-bootstrap";
 
 
 
@@ -10,11 +12,30 @@ function Catalog(propes){
         //propes.nav(8)
         setPage(8)
     }
+    const clickedPage1=()=>{
+        propes.nav(1)
+    }
     return(
-        <div className={'super_container'}>
-            <div className={'container'}>
-                <div className='catalogpage'>
-                    <h1>Welcome to Datatex</h1>
+        <div>
+            <Navbar bg="dark" variant="dark" style={{ height:'80px',width:'100vw'}}>
+                <Container>
+                    <Button variant="dark" className={'Brand'}>D datatex</Button>
+                    <Navbar.Toggle />
+                    <Navbar.Collapse className="justify-content-end">
+                        <Navbar.Text>
+                            Signed in as: <a href="#login">Mark Otto</a>
+                        </Navbar.Text>
+                        <Navbar.Text style={{
+                            marginLeft: '10px'
+                        }}>|</Navbar.Text>
+                        <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+
+            <div className={'body-container'}>
+                <h1>Welcome to datatex</h1>
+                <Container style={{marginTop:'20px'}}>
                     <div className='directory-menu'>
                         <div className='menu-item'>
                             <div
@@ -77,9 +98,11 @@ function Catalog(propes){
                             </div>
                         </div>
                     </div>
-                </div>
+                </Container>
+
             </div>
         </div>
+
     )
 }
 
