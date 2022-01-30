@@ -66,7 +66,9 @@ function AfterLogin(propes){
                 <Navbar bg="dark" variant="dark" className={'left-nav'} >
                     <div className={'left-drawer'}>
                         <Button variant="dark" onClick={clickedProfile}>Profile</Button>
+
                         <Button variant="dark" onClick={createCatalog}>Add catalog</Button>
+
                         <Button variant="dark" >Employee Records</Button>
                         <Button variant="dark" >Orders</Button>
                         <Button variant="dark" >Production Units</Button>
