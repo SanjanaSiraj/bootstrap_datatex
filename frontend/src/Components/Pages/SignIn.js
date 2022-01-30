@@ -82,8 +82,8 @@ function SignIn(propes){
                 height: '300px',
 
                 /* Center form on page horizontally & vertically */
-                top: '10%',
-                left: '20%',}
+                top: '120px',
+                left: '25%',}
             }>
                     <Form.Group className="mb-3" controlId="formBasicEmail"
                     >

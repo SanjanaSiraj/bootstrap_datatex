@@ -37,7 +37,7 @@ function Home(propes) {
             display:'flex',
             flexDirection: 'column',
             height: '100vh'
-        }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height:'90px'}}>
+        }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height:'80px'}}>
             <Container>
                 {/*<img src={Fab} className={'Fab'}/>*/}
                 <Button variant="dark" onClick={clickedPage1} className={'Brand'}>D datatex</Button>
