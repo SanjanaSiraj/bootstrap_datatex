@@ -33,7 +33,7 @@ function Catalog(propes){
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            Signed in as: <a href="#login">Mark Otto</a>
+                            Signed in as: <a href="#login">{username}</a>
                         </Navbar.Text>
                         <Navbar.Text style={{
                             marginLeft: '10px'

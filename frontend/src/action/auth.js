@@ -1,5 +1,6 @@
 import axios from "axios";
 import {setLoading, showToast} from "../App";
+import {passData, setPage} from "../Route";
 
 export const login=async (email, password,propes)=>{
     setLoading(true)
@@ -8,7 +9,12 @@ export const login=async (email, password,propes)=>{
         password: password
     }).then(res=>{
         console.log(res.data)
-         propes.nav(6)
+         passData(res.data)
+
+         if(res.data.type===3)
+             setPage(7)
+         else setPage(6)
+
     }).catch(err=>{
         if(err.response.status===401){
             showToast('password incorrect')

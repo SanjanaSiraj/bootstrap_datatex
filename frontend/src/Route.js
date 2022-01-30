@@ -9,12 +9,13 @@ import AfterLogin from "./Components/Pages/AfterLogin";
 import AddCatalog from "./Components/catalog/AddCatalog";
 import Catagories from "./Components/catalog/Catagories";
 
-var setPage
+var setPage,passData
 function Route(){
 
     const [pageState,setState]=useState(1)
     setPage=setState
     const[dataFromSibling,setDataFromSibling]=useState(null)
+    passData=setDataFromSibling
     return(
         <div>
             {
@@ -32,13 +33,13 @@ function Route(){
                                 <SignUp nav={setState}/>
                             ):(
                                 pageState===6?(
-                                    <AfterLogin nav={setState}/>
+                                    <AfterLogin nav={setState} type={dataFromSibling}/>
                                 ):(
                                     pageState===5?(
-                                        <SignIn nav={setState}/>
+                                        <SignIn nav={setState} />
                                     ):(
                                         pageState===7?(
-                                            <Catalog nav={setState} setFabricType={setDataFromSibling}/>
+                                            <Catalog nav={setState} setFabricType={setDataFromSibling} type={dataFromSibling}/>
                                         ):(
                                             pageState===8?(
                                                 <Catagories nav={setState} type={dataFromSibling}/>
@@ -59,6 +60,6 @@ function Route(){
     )
 }
 export default Route
-export {setPage}
+export {setPage,passData}
 
 

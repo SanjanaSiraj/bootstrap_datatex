@@ -85,7 +85,7 @@ function SignUp(propes){
         <div style={{
             display:'flex',
             flexDirection: 'column'
-        }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        }}><Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{height:'80px'}}>
             <Container>
                 <Button variant="dark" onClick={clickedPage1} className={'Brand'}>D datatex</Button>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -104,11 +104,14 @@ function SignUp(propes){
         </Navbar>
             <div></div>
             <Form style={{
-                alignSelf:'center',
-                marginTop: '50px',
-                marginBottom:'50px',
-                width:'700px',
-                height:'300px',
+                position: 'absolute',
+
+                width: '50%',
+                height: '300px',
+
+                /* Center form on page horizontally & vertically */
+                top: '10%',
+                left: '25%',
             }}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>

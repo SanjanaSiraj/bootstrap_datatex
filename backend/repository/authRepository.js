@@ -56,7 +56,7 @@ class AuthRepository extends Repository{
         const params=[data.email]
         const result=await this.sqlQuery(query,params)
         console.log(result,'in sign in in auth repository')
-        if(result.data.length==0){
+        if(result.data.length===0){
             return{
                 success:false,
                 error:process.env.ERROR_NO_USER
@@ -75,7 +75,9 @@ class AuthRepository extends Repository{
             }, process.env.JWT_SECRET_KEY, {expiresIn: `${tokenExpiryDuration}s`})
             return {
                 success: true,
-                token: token
+                user_id:result.data[0]['ID'],
+                user_name:result.data[0]['USERNAME'],
+                user_type:result.data[0]['TYPE'],
             }
         }
         return {

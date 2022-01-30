@@ -30,10 +30,14 @@ class AuthController {
     }
     signin=async(req,res)=>{
         let result=await authRepository.signin(req.body)
+        console.log(req.body.id)
         if (result.success) {
             res.status(200).json({
                 success:true,
-                token:result.token
+                token:result.token,
+                user_id:result.user_id,
+                username:result.user_name,
+                type:result.user_type,
             });
         } else {
             switch (result.error){
