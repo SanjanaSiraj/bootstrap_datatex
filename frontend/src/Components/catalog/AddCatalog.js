@@ -74,9 +74,9 @@ function AddCatalog(propes){
     }
 
     return(
-        <div>
+        <div className={'main-container'}>
             <Container style={{width:'80%'}}>
-                <Typography variant="h5" component="h2"style={{marginTop:'30px',textAlign:'center'}}>
+                <Typography variant="h5" component="h2"style={{textAlign:'center'}}>
                     CREATE CATALOG
                 </Typography>
                 <Form style={{ alignSelf:'center',

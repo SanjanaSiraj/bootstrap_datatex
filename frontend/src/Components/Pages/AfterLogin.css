@@ -1,5 +1,6 @@
 .left-drawer{
     display: flex;
+    width: 8vw;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -17,3 +18,10 @@
     width: 8vw;
 
 }
+
+.menu-fitting{
+    max-height: calc(100vh - 97px);
+
+
+}
+
