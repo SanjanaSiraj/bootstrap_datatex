@@ -38,6 +38,7 @@ function SignUp(propes){
     const addressRef=useRef();
     const nameRef=useRef();
     const employee_idRef=useRef();
+    const user_typeRef=useRef();
     const confirmPassRef=useRef();
 
     function clickedSignUp() {
@@ -49,6 +50,7 @@ function SignUp(propes){
         const confirmPass=confirmPassRef.current.value
         const address=addressRef.current.value
         const employee_id=employee_idRef.current.value
+        const user_type=user_typeRef.current.value
 
 
         if(name.length===0){
@@ -100,6 +102,7 @@ function SignUp(propes){
                 </Navbar.Collapse>
             </Container>
         </Navbar>
+            <div></div>
             <Form style={{
                 alignSelf:'center',
                 marginTop: '50px',
@@ -112,8 +115,20 @@ function SignUp(propes){
                     <Form.Control ref={nameRef} type="text" placeholder="Enter Name" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formEmployeeId">
+                    <Form.Label>User Type</Form.Label>
+                    <Form.Select ref={user_typeRef}>
+                        <option style={{
+                            marginTop: '10px'
+                        }}>Buyer/Guest</option>
+                        <option style={{
+                            marginTop: '5px'
+                        }}>Staff</option>
+                    </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formEmployeeId">
                     <Form.Label>Employee Id</Form.Label>
                     <Form.Control ref={employee_idRef} type="number" placeholder="Enter Employee Id" />
+                    <Form.Text>Not required for a guest type account.</Form.Text>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>
@@ -143,7 +158,7 @@ function SignUp(propes){
                     <Button variant="dark" onClick={clickedSignUp}>Submit</Button>
                 </Form.Group>
                 <br/>
-                <h6> Already have an account or looking to just place an order? Click <a onClick={clickedPage5} className={"buyerLink"}>here</a> to sign in as an employee or a buyer.</h6>
+                <h6> Already have an account? Click <a onClick={clickedPage5} className={"buyerLink"}>here</a> to sign in.</h6>
                 <br/>
                 <br/>
             </Form>

@@ -42,9 +42,9 @@ function AfterLogin(propes){
                         height: '600px'
                     }}>
                         <Button variant="dark" onClick={clickedProfile}>Profile</Button>
-                        <Button variant="dark" >Contact</Button>
-                        <Button variant="dark" >Products</Button>
-                        <Button variant="dark" >About</Button>
+                        <Button variant="dark" >Employee Records</Button>
+                        <Button variant="dark" >Orders</Button>
+                        <Button variant="dark" >Production Units</Button>
                         <Button variant="dark" >Contact</Button>
                         <Button variant="dark" >Products</Button>
                         <br/>

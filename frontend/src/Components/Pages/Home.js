@@ -68,6 +68,7 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo1}
                             alt="Logo"
+                            height="800px"
                         />
                         <Carousel.Caption>
                             <h5>First slide label</h5>
@@ -79,6 +80,7 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo2}
                             alt="Logo"
+                            height="800px"
                         />
                         <Carousel.Caption>
                             <h5>Second slide label</h5>
@@ -90,6 +92,7 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo3}
                             alt="Logo"
+                            height="800px"
                         />
                         <Carousel.Caption>
                             <h5>Third slide label</h5>
@@ -101,6 +104,7 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo4}
                             alt="Logo"
+                            height="800px"
                         />
                         <Carousel.Caption>
                             <h5>Fourth slide label</h5>
