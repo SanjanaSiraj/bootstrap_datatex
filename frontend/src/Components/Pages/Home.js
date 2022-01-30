@@ -67,8 +67,7 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo1}
                             alt="Logo"
-                            style={{height:'calc(100vh-200px)'}}
-                        />
+                            height="800px" />
                         <Carousel.Caption>
                             <h5>First slide label</h5>
                             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -79,8 +78,7 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo2}
                             alt="Logo"
-                            style={{height:'calc(100vh-200px)'}}
-                        />
+                            height="800px"/>
                         <Carousel.Caption>
                             <h5>Second slide label</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -92,6 +90,7 @@ function Home(propes) {
                             style={{height:'calc(100vh-200px)'}}
                             src= {logo3}
                             alt="Logo"
+                            height="800px"
                         />
                         <Carousel.Caption>
                             <h5>Third slide label</h5>
@@ -104,6 +103,7 @@ function Home(propes) {
                             src= {logo4}
                             style={{height:'calc(100vh-200px)'}}
                             alt="Logo"
+                            height="800px"
                         />
                         <Carousel.Caption>
                             <h5>Fourth slide label</h5>

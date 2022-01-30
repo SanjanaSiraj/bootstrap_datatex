@@ -97,11 +97,8 @@ function SignIn(propes){
                     <Form.Group className="mb-3" controlId="formBasicSubmit">
                         <Button onClick={clickedSignIn} variant="dark">Submit</Button>
                     </Form.Group>
-                    buyer function
-                    <h6>Looking to place an order? Click <a onClick={clickedPage6} className={"buyerLink"}>here</a> to sign in as a buyer.</h6>
                     <br/>
                     <br/>
-
             </Form>
         </div>
     )

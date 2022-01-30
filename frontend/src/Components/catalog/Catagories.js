@@ -39,8 +39,11 @@ function Catagories(props){
     },[props.type])
     return(
         <div >
-            <Navbar bg="dark" variant="dark" style={{ height:'80px'}}>
-                <Container>
+            <Navbar bg="dark" variant="dark">
+                <Container style={{
+                    display: 'flex',
+                    flexDirection: 'row'
+                }}>
                     <Button variant="dark" className={'Brand'}>D datatex</Button>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">

@@ -27,7 +27,7 @@ function Catalog(propes){
     },[propes.type])
     return(
         <div>
-            <Navbar bg="dark" variant="dark" style={{ height:'80px',width:'100vw'}}>
+            <Navbar bg="dark" variant="dark">
                 <Container>
                     <Button variant="dark" className={'Brand'}>D datatex</Button>
                     <Navbar.Toggle />
