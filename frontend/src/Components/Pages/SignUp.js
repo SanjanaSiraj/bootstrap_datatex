@@ -71,7 +71,7 @@ function SignUp(propes){
         }else if(address.length===0){
             showToast('Please enter address')
         }else{
-             signup(name,employee_id,username,email,password,phone,address,propes)
+            signup(name,employee_id,username,email,password,phone,address,propes)
         }
 
     }
@@ -110,7 +110,7 @@ function SignUp(propes){
                 height: '300px',
 
                 /* Center form on page horizontally & vertically */
-                top: '10%',
+                top: '120px',
                 left: '25%',
             }}>
                 <Form.Group className="mb-3" controlId="formBasicName">
