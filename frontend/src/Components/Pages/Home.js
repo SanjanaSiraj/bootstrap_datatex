@@ -8,7 +8,7 @@ import logo3 from '../Images/img7.jpg';
 import logo4 from '../Images/img1.jpg';
 import Fab from '../Images/fab.png'
 import './Brand.css'
-{/*aaaaaaaaaaaaaaa*/}
+{/*aaaaaaaaaaaaaaaa*/}
 
 function Home(propes) {
     const [index, setIndex] = useState(0);
