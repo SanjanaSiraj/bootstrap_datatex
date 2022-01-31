@@ -11,6 +11,31 @@ class AdminRepository extends Repository {
         console.log(result,'in create catalog in admin repository cls')
         return result
     }
+
+    getFabrics=async()=>{
+        const query='select * from fabric where approve_status=:0'
+        const params=[0]
+        try{
+            const result=await this.sqlQuery(query,params)
+            console.log(result,'in get fabric in admin repository cls')
+            return result
+        }catch (e) {
+            console.log(e,'in get fabric in admin repository cls')
+        }
+
+    }
+
+    setApproveStatus=async(data)=>{
+        const query='update fabric set approve_status=:0 where fabric_id=:1'
+        const params=[data.approve_status,data.fabric_id]
+        try{
+            const result=await this.sqlQuery(query,params)
+            console.log(result,'in  setApproveStatus in admin repository cls')
+            return result
+        }catch (e) {
+            console.log(e,'in  setApproveStatus in admin repository cls')
+        }
+    }
 }
 
 module.exports= AdminRepository

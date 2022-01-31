@@ -20,7 +20,7 @@ function App() {
     setLoading=setL
     showToast=message=>{
         toast.dark(message, {
-            position: "top-right",
+            position: "bottom-right",
             autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,

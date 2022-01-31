@@ -128,7 +128,7 @@ function Home(propes) {
                     </p>
                 </div>
             </div>
-    </div>
+        </div>
     )
 }
 

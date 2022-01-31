@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react'
 import * as a from "../../firebase/firebase"
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {Form, Button, Table, Container} from "react-bootstrap";
-import {Typography} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import {showToast} from "../../App";
 import './AddCatalog.css'
 import {addCatalog} from "../../action/admin";
@@ -74,9 +74,9 @@ function AddCatalog(propes){
     }
 
     return(
-        <div>
-            <Container style={{width:'80%'}}>
-                <Typography variant="h5" component="h2"style={{marginTop:'30px',textAlign:'center'}}>
+        <div className={'main-container'}>
+            <Box style={{width:'80%',padding:'10px'}}>
+                <Typography variant="h5" component="h2"style={{textAlign:'center'}}>
                     CREATE CATALOG
                 </Typography>
                 <Form style={{ alignSelf:'center',
@@ -123,7 +123,7 @@ function AddCatalog(propes){
                 <Button variant="primary" type="submit" style={{marginTop:'20px'}} onClick={handleFireBaseUpload}>
                     Add to Catalog
                 </Button>
-            </Container>
+            </Box>
         </div>
     )
 }

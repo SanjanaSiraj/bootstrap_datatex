@@ -82,7 +82,9 @@ class AuthController {
     }
 
     delete= async(req,res)=>{
-        let result = await authRepository.delete(req.params.id)
+        console.log(req.body)
+        let result = await authRepository.delete(req.body)
+        console.log(result,'in delete in auth contro')
         if (result.success) {
             res.status(200).json({
                 success:true
@@ -96,6 +98,18 @@ class AuthController {
 
     addStaff= async(req,res)=>{
         let result = await authRepository.addStaff(req.body)
+        if (result.success) {
+            res.status(200).json({
+                success:true
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+            });
+        }
+    }
+    updateStaff= async(req,res)=>{
+        let result = await authRepository.update(req.body)
         if (result.success) {
             res.status(200).json({
                 success:true

@@ -8,9 +8,9 @@ class BuyerRepository extends Repository {
     order=async (data)=>{
 
         const query='insert into fabric (color_id,cotton_pct,polyester_pct,rayon_pct,tencil_pct,'+
-            'viscose_pct,lycra_pct,gsm_weight,total_price,order_date,buyer_name,buyer_address,affliation ) values (:0,:1,:2,:3,:4,:5,:6,:7,:8,:9,:10,:11,:12)'
+            'viscose_pct,lycra_pct,gsm_weight,total_price,order_date,buyer_name,buyer_address,affliation,approve_status ) values (:0,:1,:2,:3,:4,:5,:6,:7,:8,:9,:10,:11,:12,:13)'
         const params=[data.color_id,data.cotton_pct,data.polyester_pct,data.rayon_pct,data.tencil_pct,
-            data.viscose_pct,data.lycra_pct,data.gsm_weight,data.total_price,data.order_date,data.buyer_name,data.buyer_address,data.affliation]
+            data.viscose_pct,data.lycra_pct,data.gsm_weight,data.total_price,data.order_date,data.buyer_name,data.buyer_address,data.affliation,0]
         var result=await this.sqlQuery(query,params)
         return result
     }

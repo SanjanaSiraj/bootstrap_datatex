@@ -51,7 +51,7 @@ export const signup=async(name,employee_id,username,email,password,phone,address
         }
         else{
             console.log(res.data)
-            propes.nav(5)
+            propes.nav(6)
         }
 
     }).catch(err=>{

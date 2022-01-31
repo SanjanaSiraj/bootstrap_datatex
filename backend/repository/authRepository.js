@@ -130,16 +130,26 @@ class AuthRepository extends Repository{
         return result
     }
 
-    delete=async id=>{
+    delete=async data=>{
+
         const query='delete from employees where id = :0'
-        const params=[id]
+        const params=[data.id]
         var result=await this.sqlQuery(query,params)
+        console.log(result,'in delete in auth repo')
         return result
     }
 
     addStaff=async data=>{
-        const query='insert into employees (name,phone,address,hire_date,salary) values (:0,:1,:2,:3,:4)'
+        const query='insert into employees (name,phone,address,hire_date,salary) values (:0,:1,:2,:3,:4) returning id into staff_id'
         const params=[data.name,data.phone,data.address,data.hire_date,data.salary]
+        const result=await this.sqlQuery(query,params)
+        console.log(result,'in add staff in auth repository cls')
+        return result
+    }
+
+    update=async data=>{
+        const query='update employees set name=:0,phone=:1,address=:2,hire_date=:3,salary=:4 where id=:5'
+        const params=[data.name,data.phone,data.address,data.hire_date,data.salary,data.id]
         const result=await this.sqlQuery(query,params)
         console.log(result,'in add staff in auth repository cls')
         return result
