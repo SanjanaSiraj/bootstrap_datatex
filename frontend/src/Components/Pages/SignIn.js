@@ -85,7 +85,6 @@ function SignIn(propes){
                 top: '120px',
                 left: '25%',}
             }>
-
                 <Form.Group className="mb-3" controlId="formBasicEmail"
                 >
                     <Form.Label>Email address</Form.Label>
@@ -100,7 +99,6 @@ function SignIn(propes){
                 </Form.Group>
                 <br/>
                 <br/>
-
             </Form>
         </div>
     )

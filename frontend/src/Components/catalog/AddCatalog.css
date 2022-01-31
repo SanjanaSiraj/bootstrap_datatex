@@ -9,5 +9,6 @@
 .main-container{
 
     display: block;
-
+    height: 80%;
+    overflow: hidden;
 }

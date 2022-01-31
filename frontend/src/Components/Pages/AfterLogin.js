@@ -4,9 +4,11 @@ import {Button, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import './Brand.css'
 import './AfterLogin.css'
 import AddCatalog from "../catalog/AddCatalog";
+import Emplyee from "../employee/Emplyee";
+import Order from "../order/Order";
 function AfterLogin(propes){
 
-    const[menu,setmenu]=useState(2)
+    const[menu,setmenu]=useState(3)
 
     const[username,setUsername]=useState('testing')
 
@@ -34,11 +36,15 @@ function AfterLogin(propes){
     }
 
     function orderList() {
-        setmenu(2)
+        setmenu(3)
     }
 
     function productionList() {
-        setmenu(3)
+        setmenu(4)
+    }
+
+    function clickEmplyee() {
+        setmenu(2)
     }
 
     return(
@@ -61,32 +67,43 @@ function AfterLogin(propes){
                 </Container>
             </Navbar>
             <div style={{
-                display:"flex"
+                display:"flex",
+
             }}>
                 <Navbar bg="dark" variant="dark" className={'left-nav'} >
                     <div className={'left-drawer'}>
                         <Button variant="dark" onClick={clickedProfile}>Profile</Button>
-
                         <Button variant="dark" onClick={createCatalog}>Add catalog</Button>
-
-                        <Button variant="dark" >Employee Records</Button>
-                        <Button variant="dark" >Orders</Button>
+                        <Button variant="dark" onClick={clickEmplyee} >Employee Records</Button>
+                        <Button variant="dark" onClick={orderList} >Orders </Button>
                         <Button variant="dark" >Production Units</Button>
                         <Button variant="dark" >Contact</Button>
                         <Button variant="dark" >Products</Button>
 
                     </div>
                 </Navbar>
-                <div>
+                <div style={{width:'100%'}} className={'content'}>
                     {
                         menu===1?(
                             <div style={{marginTop:'20px'}} className={'menu-fitting'}>
                                 <AddCatalog className={'add-catalog'}/>
                             </div>
                         ):(
-                            <div>
-                                hello other menu
-                            </div>
+                            menu===2?(
+                                <div style={{ height:'100%'}}>
+                                <Emplyee/>
+                                </div>
+                            ):(
+                                menu===3?(
+                                    <div>
+                                    <Order/>
+                                    </div>
+                                ):(
+                                    <div>
+                                        other menu
+                                    </div>
+                                )
+                            )
                         )
                     }
                 </div>
