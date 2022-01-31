@@ -49,8 +49,8 @@ function SignIn(propes){
         console.log(email,password)
         if(!validateEmail(email))
             showToast('Please enter a valid email address')
-       /* else if (password.length<6)
-            showToast('Password length must be greater or equals to 6')*/
+        /* else if (password.length<6)
+             showToast('Password length must be greater or equals to 6')*/
         else{
             login(email,password,propes)
         }
@@ -85,20 +85,22 @@ function SignIn(propes){
                 top: '120px',
                 left: '25%',}
             }>
-                    <Form.Group className="mb-3" controlId="formBasicEmail"
-                    >
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control ref={emailRef} type="email" placeholder="Enter Email" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicPassword" >
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control ref={passRef} type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicSubmit">
-                        <Button onClick={clickedSignIn} variant="dark">Submit</Button>
-                    </Form.Group>
-                    <br/>
-                    <br/>
+
+                <Form.Group className="mb-3" controlId="formBasicEmail"
+                >
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control ref={emailRef} type="email" placeholder="Enter Email" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword" >
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control ref={passRef} type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicSubmit">
+                    <Button onClick={clickedSignIn} variant="dark">Submit</Button>
+                </Form.Group>
+                <br/>
+                <br/>
+
             </Form>
         </div>
     )

@@ -71,7 +71,7 @@ function SignUp(propes){
         }else if(address.length===0){
             showToast('Please enter address')
         }else{
-             signup(name,employee_id,username,email,password,phone,address,propes)
+            signup(name,employee_id,username,email,password,phone,address,propes)
         }
 
     }

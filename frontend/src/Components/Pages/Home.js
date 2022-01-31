@@ -87,7 +87,6 @@ function Home(propes) {
                     <Carousel.Item interval={2000}>
                         <img
                             className="d-block w-100"
-                            style={{height:'calc(100vh-200px)'}}
                             src= {logo3}
                             alt="Logo"
                             height="800px"
@@ -101,7 +100,6 @@ function Home(propes) {
                         <img
                             className="d-block w-100"
                             src= {logo4}
-                            style={{height:'calc(100vh-200px)'}}
                             alt="Logo"
                             height="800px"
                         />
@@ -129,7 +127,7 @@ function Home(propes) {
                     </p>
                 </div>
             </div>
-    </div>
+        </div>
     )
 }
 
