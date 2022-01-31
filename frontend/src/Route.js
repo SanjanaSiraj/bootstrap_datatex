@@ -12,7 +12,7 @@ import Catagories from "./Components/catalog/Catagories";
 var setPage,passData
 function Route(){
 
-    const [pageState,setState]=useState(6)
+    const [pageState,setState]=useState(9)
     setPage=setState
     const[dataFromSibling,setDataFromSibling]=useState(null)
     passData=setDataFromSibling
@@ -62,4 +62,4 @@ function Route(){
 export default Route
 export {setPage,passData}
 
-/* create new branch dev*/
+

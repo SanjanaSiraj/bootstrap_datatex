@@ -20,8 +20,12 @@
 }
 
 .menu-fitting{
-    max-height: calc(100vh - 97px);
+    height: calc(100vh - 97px);
 
+
+}
+.content{
+    height: calc(100vh - 97px);
 
 }
 
