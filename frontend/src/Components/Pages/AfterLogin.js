@@ -6,9 +6,10 @@ import './AfterLogin.css'
 import AddCatalog from "../catalog/AddCatalog";
 import Emplyee from "../employee/Emplyee";
 import Order from "../order/Order";
+import Production from "../production/Production";
 function AfterLogin(propes){
 
-    const[menu,setmenu]=useState(3)
+    const[menu,setmenu]=useState(4)
 
     const[username,setUsername]=useState('testing')
 
@@ -76,7 +77,7 @@ function AfterLogin(propes){
                         <Button variant="dark" onClick={createCatalog}>Add catalog</Button>
                         <Button variant="dark" onClick={clickEmplyee} >Employee Records</Button>
                         <Button variant="dark" onClick={orderList} >Orders </Button>
-                        <Button variant="dark" >Production Units</Button>
+                        <Button variant="dark" onClick={productionList}>Production Units</Button>
                         <Button variant="dark" >Contact</Button>
                         <Button variant="dark" >Products</Button>
 
@@ -99,9 +100,15 @@ function AfterLogin(propes){
                                     <Order/>
                                     </div>
                                 ):(
-                                    <div>
-                                        other menu
-                                    </div>
+                                    menu===4?(
+                                        <div>
+                                        <Production/>
+                                        </div>
+                                    ):(
+                                        <div>
+                                            other menu
+                                        </div>
+                                    )
                                 )
                             )
                         )

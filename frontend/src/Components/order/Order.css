@@ -2,3 +2,8 @@
     height: calc(100vh - 80px);
     overflow-y: scroll;
 }
+
+.item-click:hover{
+    background-color: #0098ff44;
+    cursor: pointer;
+}

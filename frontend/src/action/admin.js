@@ -101,3 +101,113 @@ export const getOrders=async()=>{
     return responseData.data
 }
 
+export const getProductions=async()=>{
+    console.log('before fetch productions')
+    const responseData=await axios.get('http://localhost:8088/datatex/admin/getProduction')
+    console.log('after fetching productions')
+    console.log(responseData.data)
+    return responseData.data
+}
+
+export const insertNewProduction=async (data2)=>{
+    setLoading(true)
+
+    try{
+        var result=axios.post('http://localhost:8088/datatex/admin/addProduction', {
+            run_status:data2.run_status,
+            setup_cost:data2.setup_cost,
+            setup_date:data2.setup_date,
+            hourly_gsm_speed:data2.hourly_gsm_speed
+        })
+
+        console.log(result)
+        setLoading(false)
+        return  true
+    }catch (e) {
+        console.log(e)
+        setLoading(false)
+        return false
+    }
+}
+
+export const updateApproveStatus=async (data2,status)=>{
+    setLoading(true)
+
+    try{
+        var result=axios.post('http://localhost:8088/datatex/admin/setApprove', {
+            fabric_id:data2.FABRIC_ID,
+            approve_status:status
+        })
+
+        console.log(result)
+        setLoading(false)
+        return  true
+    }catch (e) {
+        console.log(e)
+        setLoading(false)
+        return false
+    }
+}
+
+export const getFinishingTime=async(gsm)=>{
+
+    setLoading(true)
+    console.log(gsm,'in get finishing time in admin')
+    try{
+        var result=await axios.post('http://localhost:8088/datatex/admin/assignProduction', {
+            gsm:gsm
+        })
+
+        console.log(result.data)
+        setLoading(false)
+        return  result.data
+    }catch (e) {
+        console.log(e)
+        setLoading(false)
+        return false
+    }
+
+}
+
+export const insertNewApprovedOrder=async (data2)=>{
+    setLoading(true)
+
+    try{
+        var result=axios.post('http://localhost:8088/datatex/admin/getApproved', {
+            fabric_id:data2.fabric_id,
+            production_unit_id:data2.production_unit_id,
+            start_date:data2.start_date,
+            end_date:data2.end_date,
+            approve_date:data2.approve_date
+
+        })
+
+        console.log(result)
+        setLoading(false)
+        return  true
+    }catch (e) {
+        console.log(e)
+        setLoading(false)
+        return false
+    }
+}
+
+export const getAllApprovals=async(data)=>{
+
+    setLoading(true)
+    console.log(data,'in get finishing time in admin')
+    try{
+        var result=await axios.post('http://localhost:8088/datatex/admin/getApprovals', {
+            id:data
+        })
+
+        console.log(result.data)
+        setLoading(false)
+        return  result.data
+    }catch (e) {
+        console.log(e)
+        setLoading(false)
+        return false
+    }
+
+}
