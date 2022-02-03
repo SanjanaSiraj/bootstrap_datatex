@@ -46,5 +46,72 @@ class AdminController {
             });
         }
     }
+    createProduct=async(req,res)=>{
+        let result=await adminRepository.createProduction(req.body);
+        if (result.success) {
+            res.status(200).json({
+                success:true
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error:result.error
+            });
+        }
+    }
+    getProductions = async(req, res) => {
+        let result = await adminRepository.getProductions();
+        if (result.success) {
+            res.status(200).json({
+                result:result.data,
+                success:true
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+            });
+        }
+    }
+    getFinishingTIme=async(req,res)=>{
+        let result = await adminRepository.getApproximateDate(req.body);
+        if (result.success) {
+            res.status(200).json({
+                result:result.data,
+                success:true
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+            });
+        }
+    }
+
+    createApproval=async(req,res)=>{
+        let result=await adminRepository.insetApproval(req.body);
+        if (result.success) {
+            res.status(200).json({
+                success:true
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error:result.error
+            });
+        }
+    }
+    getApprovals=async(req,res)=>{
+        let result=await adminRepository.getApprovals(req.body);
+        if (result.success) {
+            res.status(200).json({
+                success:true,
+                result:result.data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error:result.error
+            });
+        }
+    }
 }
 module.exports= AdminController

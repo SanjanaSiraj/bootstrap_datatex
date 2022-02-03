@@ -8,7 +8,10 @@ import Emplyee from "../employee/Emplyee";
 import Order from "../order/Order";
 import '../Assets/bootstrap.min.css'
 
-function AfterLogin(propes) {
+import Production from "../production/Production";
+function AfterLogin(propes){
+
+    const[menu,setmenu]=useState(4)
 
     const [menu, setmenu] = useState(3)
 
@@ -80,11 +83,11 @@ function AfterLogin(propes) {
                     <div className={'left-drawer'}>
                         <Button variant="dark" onClick={clickedProfile}>Profile</Button>
                         <Button variant="dark" onClick={createCatalog}>Add Catalog Item</Button>
-                        <Button variant="dark" onClick={clickEmplyee}>Employee Records</Button>
-                        <Button variant="dark" onClick={orderList}>Orders </Button>
-                        <Button variant="dark">Production Units</Button>
-                        <Button variant="dark">Contact</Button>
-                        <Button variant="dark">Products</Button>
+                        <Button variant="dark" onClick={clickEmplyee} >Employee Records</Button>
+                        <Button variant="dark" onClick={orderList} >Orders </Button>
+                        <Button variant="dark" onClick={productionList}>Production Units</Button>
+                        <Button variant="dark" >Contact</Button>
+                        <Button variant="dark" >Products</Button>
 
                     </div>
                 </Navbar>
@@ -104,10 +107,16 @@ function AfterLogin(propes) {
                                     <div>
                                         <Order/>
                                     </div>
-                                ) : (
-                                    <div>
-                                        other menu
-                                    </div>
+                                ):(
+                                    menu===4?(
+                                        <div>
+                                        <Production/>
+                                        </div>
+                                    ):(
+                                        <div>
+                                            other menu
+                                        </div>
+                                    )
                                 )
                             )
                         )
