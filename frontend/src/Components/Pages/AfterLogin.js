@@ -6,13 +6,15 @@ import './AfterLogin.css'
 import AddCatalog from "../catalog/AddCatalog";
 import Emplyee from "../employee/Emplyee";
 import Order from "../order/Order";
-function AfterLogin(propes){
+import '../Assets/bootstrap.min.css'
 
-    const[menu,setmenu]=useState(3)
+function AfterLogin(propes) {
 
-    const[username,setUsername]=useState('testing')
+    const [menu, setmenu] = useState(3)
 
-    const clickedPage1=()=>{
+    const [username, setUsername] = useState('testing')
+
+    const clickedPage1 = () => {
         propes.nav(1)
     }
 
@@ -20,16 +22,16 @@ function AfterLogin(propes){
 
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(propes.type)
-        if(propes.type!==undefined&&propes.type!==null)
-        setUsername(propes.type.username)
+        if (propes.type !== undefined && propes.type !== null)
+            setUsername(propes.type.username)
         else setUsername('testing')
-    },[propes.type])
+    }, [propes.type])
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log(menu)
-    },[menu])
+    }, [menu])
 
     function createCatalog() {
         setmenu(1)
@@ -47,58 +49,62 @@ function AfterLogin(propes){
         setmenu(2)
     }
 
-    return(
-        <div style={{
-
-        }}>
-            <Navbar bg="dark" variant="dark" style={{ height:'80px'}}>
-                <Container>
-                    <Button variant="dark" className={'Brand'}>D datatex</Button>
-                    <Navbar.Toggle />
-                    <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text>
-                            Signed in as: <a onClick={clickedProfile}>{username}</a>
-                        </Navbar.Text>
-                        <Navbar.Text style={{
-                            marginLeft: '10px'
-                        }}>|</Navbar.Text>
-                        <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
-                    </Navbar.Collapse>
-                </Container>
+    return (
+        <div style={{}}>
+            <Navbar bg="dark" variant="dark" style={{height: '80px'}} id={'test3'} className={"d-flex justify-content-between"}>
+                {/*<div id={'test4'} className={"d-flex justify-content-between"}>*/}
+                    <Button variant="dark" className={'Brand'} style={{
+                        marginLeft:'60px'
+                    }}>D datatex</Button>
+                    <div>
+                        <Navbar.Toggle/>
+                        <Navbar.Collapse className="justify-content-end" style={{
+                            marginRight: '50px'
+                        }}>
+                            <Navbar.Text>
+                                Signed in as: <a onClick={clickedProfile}>{username}</a>
+                            </Navbar.Text>
+                            <Navbar.Text style={{
+                                marginLeft: '10px'
+                            }}>|</Navbar.Text>
+                            <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
+                        </Navbar.Collapse>
+                    </div>
+                {/*</div>*/}
             </Navbar>
             <div style={{
-                display:"flex",
+                display: "flex",
 
             }}>
-                <Navbar bg="dark" variant="dark" className={'left-nav'} >
+                <Navbar bg="dark" variant="dark" className={'left-nav'} id={'test1'}>
                     <div className={'left-drawer'}>
                         <Button variant="dark" onClick={clickedProfile}>Profile</Button>
                         <Button variant="dark" onClick={createCatalog}>Add Catalog Item</Button>
-                        <Button variant="dark" onClick={clickEmplyee} >Employee Records</Button>
-                        <Button variant="dark" onClick={orderList} >Orders </Button>
-                        <Button variant="dark" >Production Units</Button>
-                        <Button variant="dark" >Contact</Button>
-                        <Button variant="dark" >Products</Button>
+                        <Button variant="dark" onClick={clickEmplyee}>Employee Records</Button>
+                        <Button variant="dark" onClick={orderList}>Orders </Button>
+                        <Button variant="dark">Production Units</Button>
+                        <Button variant="dark">Contact</Button>
+                        <Button variant="dark">Products</Button>
 
                     </div>
                 </Navbar>
-                <div style={{width:'100%'}} className={'content'}>
+                <div style={{width: '100%'}} className={'content'} id={'test2'}>
                     {
-                        menu===1?(
-                            <div style={{marginTop:'20px'}} className={'menu-fitting'}>
+                        menu === 1 ? (
+                            <div style={{marginTop: '20px'}} className={'menu-fitting'}>
                                 <AddCatalog className={'add-catalog'}/>
                             </div>
-                        ):(
-                            menu===2?(
-                                <div style={{ height:'100%'}}>
-                                <Emplyee/>
+                        ) : (
+                            menu === 2 ? (
+                                <div style={{height: '100%'}}>
+                                    <Emplyee/>
                                 </div>
-                            ):(
-                                menu===3?(
+                            ) : (
+                                menu === 3 ? (
                                     <div>
-                                    <Order/>
+                                        <Order/>
                                     </div>
-                                ):(
+                                ) : (
                                     <div>
                                         other menu
                                     </div>
@@ -113,4 +119,5 @@ function AfterLogin(propes){
         </div>
     )
 }
+
 export default AfterLogin
