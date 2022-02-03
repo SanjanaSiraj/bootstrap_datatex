@@ -2,6 +2,7 @@ import React, {useRef, useState} from 'react'
 import * as a from "../../firebase/firebase"
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {Form, Button, Table, Container} from "react-bootstrap";
+import '../Assets/bootstrap.min.css'
 import {Box, Typography} from "@mui/material";
 import {showToast} from "../../App";
 import './AddCatalog.css'
@@ -81,9 +82,9 @@ function AddCatalog(propes){
                 </Typography>
                 <Form style={{ alignSelf:'center',
                     marginTop: '20px'}} onSubmit={handleFireBaseUpload}>
-                    <Form.Group controlId="colorName">
-                        <Form.Label>Color Name:</Form.Label>
-                        <Form.Control ref={colorRef} type="text" placeholder="Enter Color Name" name="color_name"/>
+                    <Form.Group className="mb-3" controlId="formBasicName">
+                        <Form.Label>Color Name</Form.Label>
+                        <Form.Control ref={colorRef} type='text' placeholder="Enter Color Name" />
                     </Form.Group>
 
                     <Form.Group controlId="pricePerGsm">
@@ -91,10 +92,27 @@ function AddCatalog(propes){
                         <Form.Control ref={priceRef} type="number" placeholder="Price " name="price"/>
                     </Form.Group>
 
-                    <Form.Group controlId="weave_design">
-                        <Form.Label>Weave Design:</Form.Label>
-                        <Form.Control ref={weaveRef} type="text" placeholder="Type of weave design" name="weave design"/>
+                    <Form.Group controlId="weaveId">
+                        <Form.Label>Weave Design</Form.Label>
+                        <Form.Select placeholder={"Type of weave design"} ref={weaveRef}>
+                            <option style={{
+                                marginTop: '10px'
+                            }}>Plain</option>
+                            <option style={{
+                                marginTop: '5px'
+                            }}>Twill</option>
+                            <option style={{
+                                marginTop: '5px'
+                            }}>Satin</option>
+                            <option style={{
+                                marginTop: '5px'
+                            }}>Dobby</option>
+                            <option style={{
+                                marginTop: '5px'
+                            }}>Chiffon</option>
+                        </Form.Select>
                     </Form.Group>
+
                     <Typography variant="h6" component="h2"style={{marginTop:'20px'}}>
                         Select Image
                     </Typography>
@@ -120,7 +138,7 @@ function AddCatalog(propes){
                 </div>
 
                 <br/>
-                <Button variant="primary" type="submit" style={{marginTop:'20px'}} onClick={handleFireBaseUpload}>
+                <Button variant="dark" type="submit" style={{marginTop:'20px'}} onClick={handleFireBaseUpload}>
                     Add to Catalog
                 </Button>
             </Box>

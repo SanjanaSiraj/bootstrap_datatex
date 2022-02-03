@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
-import {Button, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import {Button, Form, FormControl, Nav, Navbar, NavDropdown} from "react-bootstrap";
 import './Brand.css'
 import './AfterLogin.css'
 import AddCatalog from "../catalog/AddCatalog";
@@ -57,7 +57,7 @@ function AfterLogin(propes){
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            Signed in as: <a href="#login">{username}</a>
+                            Signed in as: <a onClick={clickedProfile}>{username}</a>
                         </Navbar.Text>
                         <Navbar.Text style={{
                             marginLeft: '10px'
@@ -73,7 +73,7 @@ function AfterLogin(propes){
                 <Navbar bg="dark" variant="dark" className={'left-nav'} >
                     <div className={'left-drawer'}>
                         <Button variant="dark" onClick={clickedProfile}>Profile</Button>
-                        <Button variant="dark" onClick={createCatalog}>Add catalog</Button>
+                        <Button variant="dark" onClick={createCatalog}>Add Catalog Item</Button>
                         <Button variant="dark" onClick={clickEmplyee} >Employee Records</Button>
                         <Button variant="dark" onClick={orderList} >Orders </Button>
                         <Button variant="dark" >Production Units</Button>

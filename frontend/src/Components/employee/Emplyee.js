@@ -19,6 +19,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import {invertColor} from "../../util";
 import {showToast} from "../../App";
 import {orderFabricInserted} from "../../action/buyer";
+import './Employee.css'
 
 function Emplyee(props){
 
@@ -164,7 +165,7 @@ function Emplyee(props){
     }
 
     return(
-        <div style={{padding:'20px',height:'100%'}}>
+        <div style={{padding:'30px',height:'100%'}}>
             <Dialog open={orderDialog}>
                 <DialogTitle>
                     <Typography variant={"h6"} >
@@ -214,12 +215,12 @@ function Emplyee(props){
             <Box style={{height:'100%'}}>
                 <h2 className="heading" style={{}}>Employees List</h2>
                 <div className = "add">
-                    <Button variant={"contained"} onClick={addEmployee}> Add Employee</Button>
+                    <Button variant={"contained"} onClick={addEmployee} style={{borderRadius:15}}> Add Employee</Button>
                 </div>
                 <br></br>
-                <Paper sx={{ width: '100%', overflow: 'hidden' ,Height:'100%',zIndex:'100000'}}>
-                    <TableContainer sx={{ Height: '100%', }}>
-                        <Table stickyHeader aria-label="sticky table">
+
+                    <TableContainer >
+                        <Table stickyHeader aria-label="sticky table" striped={'true'} variant={'light'} hover={'true'}>
                             <TableHead>
                                 <TableRow>
                                     <th>ID</th>
@@ -228,7 +229,9 @@ function Emplyee(props){
                                     <th>PHONE</th>
                                     <th>HIRE_DATE</th>
                                     <th>SALARY</th>
-                                    <th> Actions</th>
+                                    <th style={{
+                                        textAlign: 'center'
+                                    }}> Actions</th>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -244,14 +247,19 @@ function Emplyee(props){
                                                     <td> {new Date(employee.HIRE_DATE).toLocaleString()}</td>
                                                     <td> {employee.SALARY}</td>
                                                     <td>
-                                                        <Button  variant={"outlined"} onClick={()=>{
+                                                        <div style={{
+                                                            display:'flex',
+                                                            justifyContent: 'center',
+                                                            marginRight:'10px'
+                                                        }}>
+                                                        <Button  variant={"contained"} className={'addEmp'} style={{borderRadius:15}} onClick={()=>{
                                                             //updateStaff(employee.ID,employee.NAME,employee.ADDRESS,employee.PHONE,employee.HIRE_DATE,employee.SALARY)
                                                             updatePromptCLick(employee)
                                                         }}>Update </Button>
-                                                        <Button style={{marginLeft: "10px"}}  color={'error'} variant={"contained"} onClick={()=>{
+                                                        <Button style={{marginLeft: "10px", borderRadius:15}}  color={'error'} variant={"contained"} className={'addEmp'} onClick={()=>{
                                                             deleteStaffCall(employee.ID)
                                                         }}>Delete </Button>
-
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             )
@@ -264,7 +272,6 @@ function Emplyee(props){
                             </TableBody>
                         </Table>
                     </TableContainer>
-                </Paper>
             </Box>
         </div>
     )

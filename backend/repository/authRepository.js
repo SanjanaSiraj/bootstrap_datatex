@@ -124,7 +124,7 @@ class AuthRepository extends Repository{
     }
 
     getAllEmployees=async ()=>{
-        const query='select * from employees'
+        const query='select * from employees order by ID'
         const params=[]
         var result=await this.sqlQuery(query,params)
         return result
