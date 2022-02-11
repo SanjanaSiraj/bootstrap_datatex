@@ -10,7 +10,7 @@ export const addCatalog=async (imageUrl,color,price,weave,propes)=>{
         image:imageUrl
     }).then(res=>{
         console.log(res.data)
-        propes.nav(6)
+        showToast('Catalog is added successfully')
     }).catch(err=>{
        console.log(err)
 
@@ -32,7 +32,7 @@ export const insertNewEmployee=async (data2)=>{
     setLoading(true)
 
     try{
-        var result=axios.post('http://localhost:8088/datatex/auth/addStaff', {
+        var result=await axios.post('http://localhost:8088/datatex/auth/addStaff', {
             name:data2.name,
             phone:data2.phone,
             address:data2.address,
@@ -42,7 +42,7 @@ export const insertNewEmployee=async (data2)=>{
 
         console.log(result)
         setLoading(false)
-        return  true
+        return  result.data.data[0]
     }catch (e) {
         console.log(e)
         setLoading(false)
@@ -77,6 +77,26 @@ export const deletedStaff=async(data)=>{
     setLoading(true)
     try{
         var result=await axios.delete('http://localhost:8088/datatex/auth/delete', {
+            data:{
+
+                id: data
+            }
+        })
+        console.log(result.data)
+        setLoading(false)
+        return  true
+    }catch(e){
+        console.log(e)
+        setLoading(false)
+        return false
+    }
+
+}
+
+export const deletedCard=async(data)=>{
+    setLoading(true)
+    try{
+        var result=await axios.delete('http://localhost:8088/datatex/admin/deleteCatalog', {
             data:{
 
                 id: data
@@ -210,4 +230,12 @@ export const getAllApprovals=async(data)=>{
         return false
     }
 
+}
+
+export const getCatalogsA=async()=>{
+    console.log('before fetch ctalogs')
+    const responseData=await axios.get('http://localhost:8088/datatex/admin/getCatalogs')
+    console.log('after fetching catalogs')
+    console.log(responseData.data)
+    return responseData.data
 }

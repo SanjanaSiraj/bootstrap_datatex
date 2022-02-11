@@ -5,15 +5,32 @@ class AdminRepository extends Repository {
         super();
     }
     createCatalog=async(data)=>{
-        const query='insert into catalog (color,price_per_gsm,weave_design,image) values (:0,:1,:2,:3)'
-        const params=[data.color,data.price_per_gsm,data.weave_design,data.image]
+        const query='insert into catalog (color,price_per_gsm,weave_design,image,cdate) values (:0,:1,:2,:3,:4)'
+        const params=[data.color,data.price_per_gsm,data.weave_design,data.image,Date.now()/1000]
         const result=await this.sqlQuery(query,params)
         console.log(result,'in create catalog in admin repository cls')
         return result
     }
 
+    deleteCard=async data=>{
+
+        const query='delete from catalog where color_id = :0'
+        const params=[data.id]
+        var result=await this.sqlQuery(query,params)
+        console.log(result,'in delete in admin repo')
+        return result
+    }
+
+    getCatalogs=async(data)=>{
+        const query='select * from catalog order by cdate desc'
+        const params=[]
+        const result=await this.sqlQuery(query,params)
+        console.log(result,'in get catalog in admin repository cls')
+        return result
+    }
+
     getFabrics=async()=>{
-        const query='select * from fabric where approve_status=:0'
+        const query='select * from fabric where approve_status=:0 order by order_date desc'
         const params=[0]
         try{
             const result=await this.sqlQuery(query,params)

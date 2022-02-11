@@ -17,6 +17,21 @@ class AdminController {
         }
     }
 
+    deleteCard= async(req,res)=>{
+        console.log(req.body)
+        let result = await adminRepository.deleteCard(req.body)
+        console.log(result,'in delete card in admin contro')
+        if (result.success) {
+            res.status(200).json({
+                success:true
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+            });
+        }
+    }
+
     getFabrics=async(req,res)=>{
         let result = await adminRepository.getFabrics(req.body)
         console.log(result,'in get fabrics in admin controller')
@@ -101,6 +116,21 @@ class AdminController {
     }
     getApprovals=async(req,res)=>{
         let result=await adminRepository.getApprovals(req.body);
+        if (result.success) {
+            res.status(200).json({
+                success:true,
+                result:result.data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error:result.error
+            });
+        }
+    }
+    getCatalogs = async(req, res) => {
+        let result = await adminRepository.getCatalogs(req.body)
+        console.log(result,'in get catalogs in admin controller')
         if (result.success) {
             res.status(200).json({
                 success:true,

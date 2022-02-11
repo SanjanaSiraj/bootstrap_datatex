@@ -278,7 +278,7 @@ function Order(props){
                                                <b>
                                                    Order Date:
                                                </b>
-                                               {order.ORDER_DATE}
+                                               {new Date(order.ORDER_DATE*1000).toLocaleString()}
                                                <Divider light style={{padding:'0px',margin:'0px'}} />
                                                <br/>
                                                <b>
@@ -312,8 +312,16 @@ function Order(props){
                                                </Button>
                                            </Grid>
                                            <Grid item xs={3}>
-                                                <img style={{width:'100%'}}
-                                                     src={'https://i.pinimg.com/236x/03/4b/de/034bde783ea726b922100c86547831e8.jpg'}/>
+                                               {
+                                                   order.IMAGE===null?(
+                                                       <img style={{width:'100%'}}
+                                                            src={'https://i.pinimg.com/236x/03/4b/de/034bde783ea726b922100c86547831e8.jpg'}/>
+                                                   ):(
+                                                       <img style={{width:'100%'}}
+                                                            src={order.IMAGE}/>
+                                                   )
+                                               }
+
                                            </Grid>
                                        </Grid>
                                    </Paper>

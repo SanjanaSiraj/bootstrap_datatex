@@ -1,6 +1,36 @@
 import axios from "axios";
 import {setLoading, showToast} from "../App";
 import {passData, setPage} from "../Route";
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+const COOKIE_AGE=315360000
+
+export const checkAuth=()=>{
+    console.log(cookies.get('username'))
+    if(cookies.get('username')===undefined || cookies.get('username')==null)
+        return false
+    else
+        return true
+}
+
+export const logout=()=>{
+    cookies.remove('username',{ path: '/' })
+    cookies.remove('type',{ path: '/' })
+    cookies.remove('user_id',{ path: '/' })
+    console.log('in line 19 in logout')
+}
+
+export const getUserType=()=>{
+    return cookies.get('type')
+}
+
+export const getUserName=()=>{
+    return cookies.get('username')
+}
+
+export const getUserId=()=>{
+    return cookies.get('user_id')
+}
 
 export const login=async (email, password,propes)=>{
     setLoading(true)
@@ -10,7 +40,10 @@ export const login=async (email, password,propes)=>{
     }).then(res=>{
         console.log(res.data)
          passData(res.data)
-
+         cookies.set('username',res.data.username,{ path: '/', maxAge: COOKIE_AGE })
+         cookies.set('type',res.data.type,{ path: '/', maxAge: COOKIE_AGE })
+         cookies.set('user_id',res.data.user_id,{ path: '/', maxAge: COOKIE_AGE })
+         //checkAuth(dispatcher)
          if(res.data.type===3)
              setPage(7)
          else setPage(6)

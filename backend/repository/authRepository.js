@@ -140,11 +140,15 @@ class AuthRepository extends Repository{
     }
 
     addStaff=async data=>{
-        const query='insert into employees (name,phone,address,hire_date,salary) values (:0,:1,:2,:3,:4) returning id into staff_id'
+        const query='insert into employees (name,phone,address,hire_date,salary) values (:0,:1,:2,:3,:4)'
         const params=[data.name,data.phone,data.address,data.hire_date,data.salary]
         const result=await this.sqlQuery(query,params)
         console.log(result,'in add staff in auth repository cls')
-        return result
+        const query1='select max(id) id from employees'
+        const params1=[];
+        const result1=await this.sqlQuery(query1,params1)
+        console.log(result1,'in add staff in auth repository cls 2')
+        return result1
     }
 
     update=async data=>{

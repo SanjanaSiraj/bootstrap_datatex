@@ -9,16 +9,19 @@ import Order from "../order/Order";
 import '../Assets/bootstrap.min.css'
 
 import Production from "../production/Production";
+import {logout} from "../../action/auth";
+import {updateAuth} from "../../Route";
+import AdminCatalog from "../catalog/AdminCatalog";
 function AfterLogin(propes){
 
     const[menu,setmenu]=useState(4)
 
-    const [menu, setmenu] = useState(3)
-
     const [username, setUsername] = useState('testing')
 
     const clickedPage1 = () => {
-        propes.nav(1)
+        logout()
+        updateAuth()
+        //propes.nav(1)
     }
 
     function clickedProfile() {
@@ -52,6 +55,10 @@ function AfterLogin(propes){
         setmenu(2)
     }
 
+    function catalogList() {
+        setmenu(5)
+    }
+
     return (
         <div style={{}}>
             <Navbar bg="dark" variant="dark" style={{height: '80px'}} id={'test3'} className={"d-flex justify-content-between"}>
@@ -70,7 +77,7 @@ function AfterLogin(propes){
                             <Navbar.Text style={{
                                 marginLeft: '10px'
                             }}>|</Navbar.Text>
-                            <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
+                            <Button variant="dark" onClick={clickedPage1}>Log Out2</Button>
                         </Navbar.Collapse>
                     </div>
                 {/*</div>*/}
@@ -87,7 +94,7 @@ function AfterLogin(propes){
                         <Button variant="dark" onClick={orderList} >Orders </Button>
                         <Button variant="dark" onClick={productionList}>Production Units</Button>
                         <Button variant="dark" >Contact</Button>
-                        <Button variant="dark" >Products</Button>
+                        <Button variant="dark" onClick={catalogList}>Products</Button>
 
                     </div>
                 </Navbar>
@@ -113,9 +120,15 @@ function AfterLogin(propes){
                                         <Production/>
                                         </div>
                                     ):(
-                                        <div>
-                                            other menu
-                                        </div>
+                                        menu===5?(
+                                            <div>
+                                               <AdminCatalog/>
+                                            </div>
+                                        ):(
+                                            <div>
+                                                other menu
+                                            </div>
+                                        )
                                     )
                                 )
                             )

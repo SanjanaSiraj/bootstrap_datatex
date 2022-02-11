@@ -48,6 +48,7 @@ function Emplyee(props){
 
     function addEmployee() {
         console.log('want to try open dialogue')
+        setDate(new Date())
         setOrderDialog(true)
         setOperation(0 )
     }
@@ -69,16 +70,16 @@ function Emplyee(props){
             }
             console.log(data, 'in insert employee')
             var isInserted = await insertNewEmployee(data)
+            console.log(isInserted,'in line 72')
             if (isInserted) {
-                /*setArray([{
+                setArray([{
                     NAME:data.name,
                     ADDRESS:data.address,
                     PHONE:data.phone,
-                    ID:data.id,
+                    ID:isInserted.ID,
                     SALARY:data.salary,
                     HIRE_DATE:data.hire_date
                 },...array])
-*/
                 setOrderDialog(false)
                 console.log('yes we inserted')
                 showToast('Employee added successfully')
@@ -139,8 +140,19 @@ function Emplyee(props){
         let isDeleted=await deletedStaff(id)
         console.log(isDeleted,'after calling delete')
         if (isDeleted) {
-            setOrderDialog(false)
-            console.log('yes we inserted')
+            console.log('########test start########')
+            console.log(id)
+            console.log(array)
+            console.log('########test end########')
+            setOrderDialog(false) //opening one of my codebases... so taking a bit time...
+            var arr=[]
+            array.map(a=>{
+                if(a.ID!==id)
+                    arr.push(a)
+            })
+            setArray(arr)
+
+            console.log('yes we deleted')
             showToast('Employee deleted successfully')
         }
         else {
@@ -157,7 +169,7 @@ function Emplyee(props){
     }
 
     const updatePromptCLick=(e)=>{
-        setDate(new Date(e.HIRE_DATE))
+        setDate(new Date(e.HIRE_DATE*1000))
         setSelectedStaff(e)
         setOperation(1)
         setOrderDialog(true)
@@ -244,7 +256,7 @@ function Emplyee(props){
                                                     <td> {employee.NAME}</td>
                                                     <td>{employee.ADDRESS}</td>
                                                     <td> {employee.PHONE}</td>
-                                                    <td> {new Date(employee.HIRE_DATE).toLocaleString()}</td>
+                                                    <td> {new Date(employee.HIRE_DATE*1000).toLocaleString()}</td>
                                                     <td> {employee.SALARY}</td>
                                                     <td>
                                                         <div style={{
