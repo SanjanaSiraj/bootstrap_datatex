@@ -8,14 +8,33 @@ import Catalog from "./Components/catalog/Catalog";
 import AfterLogin from "./Components/Pages/AfterLogin";
 import AddCatalog from "./Components/catalog/AddCatalog";
 import Catagories from "./Components/catalog/Catagories";
+import {checkAuth, getUserType} from "./action/auth";
+import AllOrder from "./Components/dropdown/AllOrder";
 
-var setPage,passData
+var setPage,passData,updateAuth
 function Route(){
 
     const [pageState,setState]=useState(1)
     setPage=setState
     const[dataFromSibling,setDataFromSibling]=useState(null)
     passData=setDataFromSibling
+
+    updateAuth=()=>{
+        if(checkAuth()){
+            if(getUserType()==='3'){
+                setState(7)
+            }else{
+                setState(6)
+            }
+        }else{
+            setState(1)
+        }
+    }
+    useEffect(()=>{
+        updateAuth()
+    },[])
+
+
     return(
         <div>
             {
@@ -44,7 +63,13 @@ function Route(){
                                             pageState===8?(
                                                 <Catagories nav={setState} type={dataFromSibling}/>
                                                 ):(
-                                                <AfterLogin />
+                                                pageState===9?(
+                                                    <AllOrder nav={{setState}}/>
+                                                ):(
+                                                    <div>
+                                                        other
+                                                    </div>
+                                                )
                                                 )
 
                                         )
@@ -60,6 +85,6 @@ function Route(){
     )
 }
 export default Route
-export {setPage,passData}
+export {setPage,passData,updateAuth}
 
 

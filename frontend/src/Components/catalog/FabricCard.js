@@ -17,12 +17,15 @@ import {setPage} from "../../Route";
 import {DesktopDatePicker, LocalizationProvider} from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import {orderFabricInserted} from "../../action/buyer";
-import {showToast} from "../../App";
+import {setLoading, showToast} from "../../App";
+import {getUserId} from "../../action/auth";
 
 
 function FabricCard(props){
     const [orderDialog,setOrderDialog]=useState(false)
+    const [user_id,setUserId]=useState(getUserId)
     const orderFabric=()=>{
+        setPrice(0)
         setOrderDialog(true)
     }
     useEffect(()=>{
@@ -50,13 +53,19 @@ function FabricCard(props){
     const [date,setDate]=useState(Date.now())
     const getGsmWeight=(e)=>{
         console.log(e.target.value)
-        try{
-            var total=parseInt(e.target.value)* props.data.PRICE_PER_GSM
-            setPrice(total)
-        }catch(e){
-            console.log(e)
+        if(e.target.value.length===0){
             setPrice(0)
+        }else{
+            try{
+                console.log(parseInt(e.target.value),props.data.PRICE_PER_GSM,'in 54')
+                var total=parseInt(e.target.value)* props.data.PRICE_PER_GSM
+                setPrice(total)
+            }catch(e){
+                console.log(e)
+                setPrice(0)
+            }
         }
+
     }
 
     const handleDate=newVal=>{
@@ -96,11 +105,19 @@ function FabricCard(props){
                 buyer_name:nameRef.current.value,
                 buyer_address:addressRef.current.value,
                 affliation:compannyRef.current.value,
-                total_price:price
+                total_price:price,
+                image:props.data.IMAGE,
+                user_id:user_id
             }
-            console.log(data,'in insert order into fabric')
+            console.log(data,'in insert order into fabric in 101')
+            setLoading(true)
             var isInserted=await orderFabricInserted(data)
-            if(isInserted)setOrderDialog(false)
+            if(isInserted) {
+
+                setOrderDialog(false)
+                setLoading(false)
+                showToast('order given successfully')
+            }
             else{
                 showToast('order is not successful')
             }
@@ -162,9 +179,7 @@ function FabricCard(props){
                         <Grid item xs={6}>
                             <TextField variant={"outlined"} label={"affiliation"} fullWidth inputRef={compannyRef}/>
                         </Grid>
-                        <Grid item xs={6}>
-                            <TextField variant={"outlined"} label={"name"} fullWidth/>
-                        </Grid>
+
                     </Grid>
                 </DialogContent>
 
