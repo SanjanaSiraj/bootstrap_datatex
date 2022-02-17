@@ -13,8 +13,6 @@ function AfterLogin(propes){
 
     const[menu,setmenu]=useState(4)
 
-    const [menu, setmenu] = useState(3)
-
     const [username, setUsername] = useState('testing')
 
     const clickedPage1 = () => {
