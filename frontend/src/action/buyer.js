@@ -18,10 +18,44 @@ export const getCatalogs=async (type)=>{
 
 }
 
-export const orderFabricInserted=async (data)=>{
+export const getOwnOrders=async (id)=>{
     setLoading(true)
     try{
-        console.log('before data in order')
+        var response=await axios.post('http://localhost:8088/datatex/buyer/fabrics', {
+            user_id:id
+        })
+        setLoading(false)
+        return response.data
+    }catch (e) {
+        console.log(e)
+        setLoading(false)
+        return false
+    }
+
+}
+
+export const getACats=async (id)=>{
+    setLoading(true)
+    try{
+        var response=await axios.post('http://localhost:8088/datatex/buyer/oneCat', {
+            color_id:id
+        })
+        setLoading(false)
+        console.log(response.data,'in get a cat')
+        return response.data
+    }catch (e) {
+        console.log(e)
+        setLoading(false)
+        return false
+    }
+
+}
+
+export const orderFabricInserted=async (data)=>{
+
+    console.log(data,'in buyer line 23')
+    try{
+        console.log('before data in order',data)
         var response=await axios.post('http://localhost:8088/datatex/buyer/order', {
             color_id:data.color_id,
             cotton_pct:data.cotton_pct,
@@ -34,11 +68,14 @@ export const orderFabricInserted=async (data)=>{
             order_date:data.order_date,
             buyer_name:data.buyer_name,
             buyer_address:data.buyer_address,
-            affliation:data.affliation
+            affliation:data.affliation,
+            total_price:data.total_price,
+            image:data.image,
+            user_id:data.user_id
         })
         console.log(response.data)
-        setLoading(false)
-        showToast('order given successfully')
+
+
         return true
 
     }catch (e) {
@@ -47,4 +84,24 @@ export const orderFabricInserted=async (data)=>{
         return false
     }
 
+}
+
+export const updateRemoveStatus=async (A,B,C)=>{
+   console.log(A,B,C,'in buyer in 90')
+
+    try{
+        var result=axios.post('http://localhost:8088/datatex/buyer/removeCat', {
+            fabric_id:B,
+            remove_status:C,
+            user_id:A
+        })
+
+        console.log(result)
+
+        return  true
+    }catch (e) {
+        console.log(e)
+
+        return false
+    }
 }

@@ -3,6 +3,7 @@ import './Catalog.css'
 import {setPage} from "../../Route";
 import Container from "react-bootstrap/Container";
 import {Button, Navbar} from "react-bootstrap";
+import {getUserName} from "../../action/auth";
 
 
 
@@ -12,19 +13,19 @@ function Catalog(propes){
         //propes.nav(8)
         setPage(8)
     }
-    const[username,setUsername]=useState(null)
+    const[username,setUsername]=useState(getUserName)
 
     const clickedPage1=()=>{
         propes.nav(1)
     }
 
-    useEffect(()=>{
+    /*useEffect(()=>{
 
         if(propes.type!==null&&propes.type!==undefined) {
             console.log(propes.type)
             setUsername(propes.type.username)
         }
-    },[propes.type])
+    },[propes.type])*/
     return(
         <div style={{
             display: "flex",

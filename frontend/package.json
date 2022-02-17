@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "react-icons": "^4.3.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "universal-cookie": "^4.0.4"
   }
 }

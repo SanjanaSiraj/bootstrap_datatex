@@ -99,9 +99,7 @@ class AuthController {
     addStaff= async(req,res)=>{
         let result = await authRepository.addStaff(req.body)
         if (result.success) {
-            res.status(200).json({
-                success:true
-            });
+            res.status(200).json(result);
         } else {
             res.status(404).json({
                 success: false,
