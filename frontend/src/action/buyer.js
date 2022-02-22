@@ -51,6 +51,89 @@ export const getACats=async (id)=>{
 
 }
 
+export const getAllOrdersAxios=async (id)=>{
+
+    try{
+        var response=await axios.post('http://localhost:8088/datatex/buyer/getAllOrders', {
+            user_id:id
+        })
+
+        console.log(response.data,'in getAllOrdersAxios a cat')
+        return response.data
+    }catch (e) {
+        console.log(e)
+
+        return false
+    }
+
+}
+
+export const get2OrdersAxios=async (id)=>{
+
+    try{
+        var response=await axios.post('http://localhost:8088/datatex/buyer/get2Orders', {
+            user_id:id
+        })
+
+        console.log(response.data,'get2OrdersAxios')
+        return response.data
+    }catch (e) {
+        console.log(e)
+
+        return false
+    }
+
+}
+
+export const get3OrdersAxios=async (id)=>{
+
+    try{
+        var response=await axios.post('http://localhost:8088/datatex/buyer/get3Orders', {
+            user_id:id
+        })
+
+        console.log(response.data,'get3OrdersAxios=')
+        return response.data
+    }catch (e) {
+        console.log(e)
+
+        return false
+    }
+
+}
+export const get4OrdersAxios=async (id)=>{
+
+    try{
+        var response=await axios.post('http://localhost:8088/datatex/buyer/get4Orders', {
+            user_id:id
+        })
+
+        console.log(response.data,'get4OrdersAxios=')
+        return response.data
+    }catch (e) {
+        console.log(e)
+
+        return false
+    }
+
+}
+export const get5OrdersAxios=async (id)=>{
+
+    try{
+        var response=await axios.post('http://localhost:8088/datatex/buyer/get5Orders', {
+            user_id:id
+        })
+
+        console.log(response.data,'get5OrdersAxios=')
+        return response.data
+    }catch (e) {
+        console.log(e)
+
+        return false
+    }
+
+}
+
 export const orderFabricInserted=async (data)=>{
 
     console.log(data,'in buyer line 23')

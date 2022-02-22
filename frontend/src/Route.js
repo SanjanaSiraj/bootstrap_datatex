@@ -10,6 +10,11 @@ import AddCatalog from "./Components/catalog/AddCatalog";
 import Catagories from "./Components/catalog/Catagories";
 import {checkAuth, getUserType} from "./action/auth";
 import AllOrder from "./Components/dropdown/AllOrder";
+import LoginPage from "./Components/staff/LoginPage";
+import ManagingOrders from "./Components/processing/ManagingOrders";
+import ChartTest from "./ChartTest";
+
+
 
 var setPage,passData,updateAuth
 function Route(){
@@ -37,7 +42,7 @@ function Route(){
 
     return(
         <div>
-            {
+            {/*{
                 pageState===1?(
                     <Home nav={setState}/>
                 ):(
@@ -66,9 +71,12 @@ function Route(){
                                                 pageState===9?(
                                                     <AllOrder nav={{setState}}/>
                                                 ):(
-                                                    <div>
-                                                        other
-                                                    </div>
+                                                    pageState===10?(
+                                                        <LoginPage nav={setState}/>
+                                                        ):(
+                                                            <ManagingOrders nav={setState}/>
+                                                    )
+
                                                 )
                                                 )
 
@@ -80,7 +88,10 @@ function Route(){
                         )
                     )
                 )
-            }
+            }*/}
+
+        <ChartTest/>
+
         </div>
     )
 }

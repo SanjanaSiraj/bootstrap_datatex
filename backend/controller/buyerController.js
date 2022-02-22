@@ -88,6 +88,84 @@ class BuyerController {
         }
     }
 
+    getAllOrders=async(req,res)=>{
+        let result = await buyerRepository.getAllOrders(req.body)
+        console.log(result,'in getAllOrders in buyern controller')
+        if (result.success) {
+            res.status(200).json({
+                success:true,
+                result:result.data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error:result.error
+            });
+        }
+    }
+
+    getApprovedNotStartOrders=async(req,res)=>{
+        let result = await buyerRepository.getApprovedNotStartOrders(req.body)
+        console.log(result,'in getApprovedNotStartOrders in buyern controller')
+        if (result.success) {
+            res.status(200).json({
+                success:true,
+                result:result.data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error:result.error
+            });
+        }
+    }
+
+    getInProductOrders=async(req,res)=>{
+        let result = await buyerRepository.getInProductOrders(req.body)
+        console.log(result,'in getInProductOrders in buyern controller')
+        if (result.success) {
+            res.status(200).json({
+                success:true,
+                result:result.data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error:result.error
+            });
+        }
+    }
+    getFInishedOrders=async(req,res)=>{
+        let result = await buyerRepository.getFinishedOrders(req.body)
+        console.log(result,'in getFInishedOrderss in buyern controller')
+        if (result.success) {
+            res.status(200).json({
+                success:true,
+                result:result.data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error:result.error
+            });
+        }
+    }
+    getRejectedOrders=async(req,res)=>{
+        let result = await buyerRepository.getRejectedOrders(req.body)
+        console.log(result,'in getRejectedOrders in buyern controller')
+        if (result.success) {
+            res.status(200).json({
+                success:true,
+                result:result.data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error:result.error
+            });
+        }
+    }
+
 }
 
 module.exports= BuyerController

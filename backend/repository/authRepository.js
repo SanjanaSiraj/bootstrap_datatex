@@ -15,7 +15,7 @@ class AuthRepository extends Repository{
         const query1='select * from users where email = :0'
         const params1=[data.email]
         const result1=await this.sqlQuery(query1,params1)
-        console.log(result1,'in sign in in auth repository')
+        ////console.log(result1,'in sign in in auth repository')
         if(result1.data.length>0){
             return{
                 success:false,
@@ -27,7 +27,7 @@ class AuthRepository extends Repository{
             const query='insert into users (name,phone,email,address,username,type,password) values (:0,:1,:2,:3,:4,:5,:6)'
             const params=[data.name,data.phone,data.email,data.address,data.username,data.type,bcrypt.hashSync(data.password, 10)]
             const result=await this.sqlQuery(query,params)
-            console.log(result,'in sign up in auth repository cls')
+            //console.log(result,'in sign up in auth repository cls')
             return result
         }
 
@@ -36,7 +36,7 @@ class AuthRepository extends Repository{
         const query2='select * from employees where id = :0'
         const params2=[data.employee_id]
         const result2=await this.sqlQuery(query2,params2)
-        console.log(result2,'in sign in in auth repository')
+        //console.log(result2,'in sign in in auth repository')
         if(result2.data.length==0){
             return{
                 success:false,
@@ -47,7 +47,7 @@ class AuthRepository extends Repository{
         const query='insert into users (name,phone,email,address,username,type,password,employee_id) values (:0,:1,:2,:3,:4,:5,:6,:7)'
         const params=[data.name,data.phone,data.email,data.address,data.username,2,bcrypt.hashSync(data.password, 10),data.employee_id]
         const result=await this.sqlQuery(query,params)
-        console.log(result,'in sign up in auth repository cls')
+        //console.log(result,'in sign up in auth repository cls')
         return result
     }
 
@@ -55,7 +55,7 @@ class AuthRepository extends Repository{
         const query='select * from users where email = :0'
         const params=[data.email]
         const result=await this.sqlQuery(query,params)
-        console.log(result,'in sign in in auth repository')
+        //console.log(result,'in sign in in auth repository')
         if(result.data.length===0){
             return{
                 success:false,
@@ -63,8 +63,8 @@ class AuthRepository extends Repository{
             }
         }
         const pass=result.data[0]['PASSWORD']
-        console.log(result.data[0])
-        console.log('password in :',data.password,pass)
+        //console.log(result.data[0])
+        //console.log('password in :',data.password,pass)
         //compare password
         if(bcrypt.compareSync(data.password, pass)) {
             var token = jwt.sign({
@@ -135,7 +135,7 @@ class AuthRepository extends Repository{
         const query='delete from employees where id = :0'
         const params=[data.id]
         var result=await this.sqlQuery(query,params)
-        console.log(result,'in delete in auth repo')
+        //console.log(result,'in delete in auth repo')
         return result
     }
 
@@ -143,11 +143,11 @@ class AuthRepository extends Repository{
         const query='insert into employees (name,phone,address,hire_date,salary) values (:0,:1,:2,:3,:4)'
         const params=[data.name,data.phone,data.address,data.hire_date,data.salary]
         const result=await this.sqlQuery(query,params)
-        console.log(result,'in add staff in auth repository cls')
+        //console.log(result,'in add staff in auth repository cls')
         const query1='select max(id) id from employees'
         const params1=[];
         const result1=await this.sqlQuery(query1,params1)
-        console.log(result1,'in add staff in auth repository cls 2')
+        //console.log(result1,'in add staff in auth repository cls 2')
         return result1
     }
 
@@ -155,7 +155,32 @@ class AuthRepository extends Repository{
         const query='update employees set name=:0,phone=:1,address=:2,hire_date=:3,salary=:4 where id=:5'
         const params=[data.name,data.phone,data.address,data.hire_date,data.salary,data.id]
         const result=await this.sqlQuery(query,params)
-        console.log(result,'in add staff in auth repository cls')
+        //console.log(result,'in add staff in auth repository cls')
+        return result
+    }
+    
+    getProfile=async data=>{
+        console.log(data.user_id)
+        const query='select * from users where id=:0'
+        const params=[data.user_id]
+        const result=await this.sqlQuery(query,params)
+        //console.log(result,'in getProfile in auth repository cls')
+        return result
+    }
+
+    updatePicture=async data=>{
+        const query='update users set image=:0 where id=:1'
+        const params=[data.image,data.user_id]
+        const result=await this.sqlQuery(query,params)
+        //console.log(result,'in getProfile in auth repository cls')
+        return result
+    }
+
+    updateProfile=async data=>{
+        const query='update users set name=:0,phone=:1,address=:2,username=:3 where id=:4'
+        const params=[data.name,data.phone,data.address,data.username,data.id]
+        const result=await this.sqlQuery(query,params)
+        //console.log(result,'in getProfile in auth repository cls')
         return result
     }
 }
