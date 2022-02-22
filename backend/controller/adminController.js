@@ -143,5 +143,21 @@ class AdminController {
             });
         }
     }
+
+    getSales = async(req, res) => {
+        let result = await adminRepository.getSales(req.body)
+        console.log(result,'in get catalogs in admin controller')
+        if (result.success) {
+            res.status(200).json({
+                success:true,
+                result:result.data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+                error:result.error
+            });
+        }
+    }
 }
 module.exports= AdminController

@@ -12,7 +12,11 @@ import Production from "../production/Production";
 import {getUserName, logout} from "../../action/auth";
 import {updateAuth} from "../../Route";
 import AdminCatalog from "../catalog/AdminCatalog";
+
+import Sales from "../CostModule/Sales";
+
 import Profile from "../profile/Profile";
+
 function AfterLogin(propes){
 
     const[menu,setmenu]=useState(6)
@@ -26,7 +30,7 @@ function AfterLogin(propes){
     }
 
     function clickedProfile() {
-       setmenu(6)
+       setmenu(7)
     }
 
 
@@ -52,6 +56,10 @@ function AfterLogin(propes){
 
     function catalogList() {
         setmenu(5)
+    }
+
+    function clickedSales() {
+        setmenu(6)
     }
 
     return (
@@ -88,8 +96,8 @@ function AfterLogin(propes){
                         <Button variant="dark" onClick={clickEmplyee} >Employee Records</Button>
                         <Button variant="dark" onClick={orderList} >Orders </Button>
                         <Button variant="dark" onClick={productionList}>Production Units</Button>
-                        <Button variant="dark" >Contact</Button>
                         <Button variant="dark" onClick={catalogList}>Products</Button>
+                        <Button variant="dark" onClick={clickedSales}>Sales</Button>
 
                     </div>
                 </Navbar>
@@ -120,9 +128,16 @@ function AfterLogin(propes){
                                                <AdminCatalog/>
                                             </div>
                                         ):(
-                                            <div>
-                                                <Profile/>
-                                            </div>
+                                            menu===6?(
+                                                <div>
+                                                    <Sales/>
+                                                </div>
+                                            ):(
+                                                <div>
+                                                    <Profile/>
+                                                </div>
+                                            )
+
                                         )
                                     )
                                 )
