@@ -57,5 +57,68 @@ class BuyerRepository extends Repository {
 
     }
 
+    getAllOrders=async(data)=>{
+        const query='SELECT M.IMAGE,M.FABRIC_ID,F.COLOR_ID,F.COTTON_PCT,F.POLYESTER_PCT,F.RAYON_PCT,F.TENCIL_PCT,F.VISCOSE_PCT,F.LYCRA_PCT,F.GSM_WEIGHT,F.TOTAL_PRICE ' +
+            'FROM MY_ORDERS M JOIN FABRIC F ON (M.FABRIC_ID=F.FABRIC_ID) WHERE M.USER_ID=:0'
+        const params=[data.user_id]
+        try{
+            const result=await this.sqlQuery(query,params)
+            console.log(result,'in getAllOrders in buyer repository cls')
+            return result
+        }catch (e) {
+            console.log(e,'in get fabric in buyer repository cls')
+        }
+    }
+    getApprovedNotStartOrders=async(data)=>{
+        console.log(data.user_id,'in buyer repo')
+        const query='SELECT M.IMAGE,M.FABRIC_ID,F.COLOR_ID,F.COTTON_PCT,F.POLYESTER_PCT,F.RAYON_PCT,F.TENCIL_PCT,F.VISCOSE_PCT,F.LYCRA_PCT,F.GSM_WEIGHT,F.TOTAL_PRICE ' +
+            'FROM MY_ORDERS M JOIN FABRIC F ON (M.FABRIC_ID=F.FABRIC_ID) WHERE M.USER_ID=:0 and M.PROD_START_DATE>:1'
+        const params=[data.user_id,Date.now()/1000]
+        try{
+            const result=await this.sqlQuery(query,params)
+            console.log(result,'in ApprovedNotStartOrders in buyer repository cls')
+            return result
+        }catch (e) {
+            console.log(e,'in get fabric in buyer repository cls')
+        }
+    }
+
+    getInProductOrders=async(data)=>{
+        const query='SELECT M.IMAGE,M.FABRIC_ID,F.COLOR_ID,F.COTTON_PCT,F.POLYESTER_PCT,F.RAYON_PCT,F.TENCIL_PCT,F.VISCOSE_PCT,F.LYCRA_PCT,F.GSM_WEIGHT,F.TOTAL_PRICE ' +
+            'FROM MY_ORDERS M JOIN FABRIC F ON (M.FABRIC_ID=F.FABRIC_ID) WHERE M.USER_ID=:0 and M.PROD_START_DATE<=(SYSDATE-DATE \'1970-01-01\')*24*60*60 AND M.DELIVERY_DATE>=(SYSDATE-DATE \'1970-01-01\')*24*60*60'
+        const params=[data.user_id]
+        try{
+            const result=await this.sqlQuery(query,params)
+            console.log(result,'in  getInProductOrders in buyer repository cls')
+            return result
+        }catch (e) {
+            console.log(e,'in get fabric in buyer repository cls')
+        }
+    }
+    getFinishedOrders=async(data)=>{
+        const query='SELECT M.IMAGE,M.FABRIC_ID,F.COLOR_ID,F.COTTON_PCT,F.POLYESTER_PCT,F.RAYON_PCT,F.TENCIL_PCT,F.VISCOSE_PCT,F.LYCRA_PCT,F.GSM_WEIGHT,F.TOTAL_PRICE ' +
+            'FROM MY_ORDERS M JOIN FABRIC F ON (M.FABRIC_ID=F.FABRIC_ID) WHERE M.USER_ID=:0 and M.DELIVERY_DATE<=(SYSDATE-DATE \'1970-01-01\')*24*60*60'
+        const params=[data.user_id]
+        try{
+            const result=await this.sqlQuery(query,params)
+            console.log(result,'in getFinishedOrders in buyer repository cls')
+            return result
+        }catch (e) {
+            console.log(e,'in get fabric in buyer repository cls')
+        }
+    }
+    getRejectedOrders=async(data)=>{
+        const query='SELECT M.IMAGE,M.FABRIC_ID,F.COLOR_ID,F.COTTON_PCT,F.POLYESTER_PCT,F.RAYON_PCT,F.TENCIL_PCT,F.VISCOSE_PCT,F.LYCRA_PCT,F.GSM_WEIGHT,F.TOTAL_PRICE ' +
+            'FROM MY_ORDERS M JOIN FABRIC F ON (M.FABRIC_ID=F.FABRIC_ID) WHERE M.USER_ID=:0 and F.APPROVE_STATUS=:1'
+        const params=[data.user_id,2]
+        try{
+            const result=await this.sqlQuery(query,params)
+            console.log(result,'in getRejectedOrders in buyer repository cls')
+            return result
+        }catch (e) {
+            console.log(e,'in get fabric in buyer repository cls')
+        }
+    }
+
 }
 module.exports= BuyerRepository

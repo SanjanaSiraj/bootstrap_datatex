@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
 import {Button, Form, FormControl, Nav, Navbar, NavDropdown} from "react-bootstrap";
-import './Brand.css'
-import './AfterLogin.css'
+import '../Pages/Brand.css'
+import '../Pages/AfterLogin.css'
 import AddCatalog from "../catalog/AddCatalog";
 import Emplyee from "../employee/Emplyee";
 import Order from "../order/Order";
@@ -12,8 +12,11 @@ import Production from "../production/Production";
 import {getUserName, logout} from "../../action/auth";
 import {updateAuth} from "../../Route";
 import AdminCatalog from "../catalog/AdminCatalog";
+import EmployeeForStaff from "./EmployeeForStaff";
+import ProductionForStaff from "./ProductionForStaff";
+import StaffCatalog from "./StaffCatalog";
 import Profile from "../profile/Profile";
-function AfterLogin(propes){
+function LoginPage(propes){
 
     const[menu,setmenu]=useState(6)
 
@@ -26,9 +29,8 @@ function AfterLogin(propes){
     }
 
     function clickedProfile() {
-       setmenu(6)
+          setmenu(6)
     }
-
 
     useEffect(() => {
         console.log(menu)
@@ -58,23 +60,23 @@ function AfterLogin(propes){
         <div style={{}}>
             <Navbar bg="dark" variant="dark" style={{height: '80px'}} id={'test3'} className={"d-flex justify-content-between"}>
                 {/*<div id={'test4'} className={"d-flex justify-content-between"}>*/}
-                    <Button variant="dark" className={'Brand'} style={{
-                        marginLeft:'60px'
-                    }}>D datatex</Button>
-                    <div>
-                        <Navbar.Toggle/>
-                        <Navbar.Collapse className="justify-content-end" style={{
-                            marginRight: '50px'
-                        }}>
-                            <Navbar.Text>
-                                Signed in as: <a onClick={clickedProfile}>{username}</a>
-                            </Navbar.Text>
-                            <Navbar.Text style={{
-                                marginLeft: '10px'
-                            }}>|</Navbar.Text>
-                            <Button variant="dark" onClick={clickedPage1}>Log Out2</Button>
-                        </Navbar.Collapse>
-                    </div>
+                <Button variant="dark" className={'Brand'} style={{
+                    marginLeft:'60px'
+                }}>D datatex</Button>
+                <div>
+                    <Navbar.Toggle/>
+                    <Navbar.Collapse className="justify-content-end" style={{
+                        marginRight: '50px'
+                    }}>
+                        <Navbar.Text>
+                            Signed in as: <a onClick={clickedProfile}>{username}</a>
+                        </Navbar.Text>
+                        <Navbar.Text style={{
+                            marginLeft: '10px'
+                        }}>|</Navbar.Text>
+                        <Button variant="dark" onClick={clickedPage1}>Log Out2</Button>
+                    </Navbar.Collapse>
+                </div>
                 {/*</div>*/}
             </Navbar>
             <div style={{
@@ -84,7 +86,6 @@ function AfterLogin(propes){
                 <Navbar bg="dark" variant="dark" className={'left-nav'} id={'test1'}>
                     <div className={'left-drawer'}>
                         <Button variant="dark" onClick={clickedProfile}>Profile</Button>
-                        <Button variant="dark" onClick={createCatalog}>Add Catalog Item</Button>
                         <Button variant="dark" onClick={clickEmplyee} >Employee Records</Button>
                         <Button variant="dark" onClick={orderList} >Orders </Button>
                         <Button variant="dark" onClick={productionList}>Production Units</Button>
@@ -96,13 +97,13 @@ function AfterLogin(propes){
                 <div style={{width: '100%'}} className={'content'} id={'test2'}>
                     {
                         menu === 1 ? (
-                            <div style={{marginTop: '20px'}} className={'menu-fitting'}>
-                                <AddCatalog className={'add-catalog'}/>
+                            <div>
+                                menu1
                             </div>
                         ) : (
                             menu === 2 ? (
                                 <div style={{height: '100%'}}>
-                                    <Emplyee/>
+                                    <EmployeeForStaff/>
                                 </div>
                             ) : (
                                 menu === 3 ? (
@@ -112,12 +113,12 @@ function AfterLogin(propes){
                                 ):(
                                     menu===4?(
                                         <div>
-                                        <Production/>
+                                            <ProductionForStaff/>
                                         </div>
                                     ):(
                                         menu===5?(
                                             <div>
-                                               <AdminCatalog/>
+                                                <StaffCatalog/>
                                             </div>
                                         ):(
                                             <div>
@@ -137,4 +138,4 @@ function AfterLogin(propes){
     )
 }
 
-export default AfterLogin
+export default LoginPage

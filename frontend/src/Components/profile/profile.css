@@ -1,0 +1,41 @@
+.leftImage{
+    width:300px;
+    height:300px;
+    border-radius: 50%;
+
+}
+
+.leftContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+
+}
+.rightContainer{
+    background-color: #0dcaf0;
+}
+
+.righrPart{
+    background-color: slategray;
+}
+.paper{
+    height:calc(100vh - 80px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.staff{
+    display: none;
+}
+
+@media only screen and (max-width: 900px) {
+    .leftContainer{
+        display: none;
+    }
+    .rightContainer{
+        margin-top: -10px;
+    }
+}
