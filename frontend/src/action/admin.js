@@ -239,3 +239,11 @@ export const getCatalogsA=async()=>{
     console.log(responseData.data)
     return responseData.data
 }
+
+export const getSales=async()=>{
+    console.log('before fetch sales')
+    const responseData=await axios.get('http://localhost:8088/datatex/admin/getSales')
+    console.log('after fetching sales')
+    console.log(responseData.data)
+    return responseData.data
+}

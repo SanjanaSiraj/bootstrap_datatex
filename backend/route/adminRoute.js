@@ -10,6 +10,7 @@ router.get('/getProduction',adminController.getProductions)
 router.post('/assignProduction',adminController.getFinishingTIme)
 router.post('/getApproved',adminController.createApproval)
 router.post('/getApprovals',adminController.getApprovals)
+router.get('/getSales',adminController.getSales)
 router.get('/getCatalogs',adminController.getCatalogs)
 router.delete('/deleteCatalog',adminController.deleteCard)
 module.exports=router
