@@ -14,5 +14,8 @@ router.post('/resetPass',authController.resetPassword)
 router.get('/getStaffs',authController.getEmployees)//admin can see all staffs
 router.post('/addStaff',authController.addStaff)//admin can see all staffs
 router.post('/updateStaff',authController.updateStaff)
+router.post('/profile',authController.getProfile)
+router.post('/uploadPic',authController.updatePicture)
+router.post('/updateProfile',authController.updateProfile)
 router.delete('/delete',authController.delete)//admin can delete any staff
 module.exports=router

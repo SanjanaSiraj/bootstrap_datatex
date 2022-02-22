@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import './Brand.css'
 import {showToast} from "../../App";
 import {signup} from "../../action/auth";
-
+let user_type=0
 function SignUp(propes){
 
     const clickedPage1=()=>{
@@ -50,7 +50,11 @@ function SignUp(propes){
         const confirmPass=confirmPassRef.current.value
         const address=addressRef.current.value
         const employee_id=employee_idRef.current.value
-        const user_type=user_typeRef.current.value
+
+        if(user_typeRef.current.value==='Staff') {
+            user_type = 2
+        }
+        else user_type=3
 
 
         if(name.length===0){
@@ -71,7 +75,7 @@ function SignUp(propes){
         }else if(address.length===0){
             showToast('Please enter address')
         }else{
-            signup(name,employee_id,username,email,password,phone,address,propes)
+            signup(name,employee_id,username,email,password,phone,address,user_type,propes)
         }
 
     }

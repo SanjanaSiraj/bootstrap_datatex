@@ -46,7 +46,11 @@ export const login=async (email, password,propes)=>{
          //checkAuth(dispatcher)
          if(res.data.type===3)
              setPage(7)
-         else setPage(6)
+         else if(res.data.type===1)
+             setPage(6)
+         else{
+             setPage(10)
+         }
 
     }).catch(err=>{
         if(err.response.status===401){
@@ -61,8 +65,9 @@ export const login=async (email, password,propes)=>{
     })
 
 }
-export const signup=async(name,employee_id,username,email,password,phone,address,propes)=>{
+export const signup=async(name,employee_id,username,email,password,phone,address,user_type,propes)=>{
     setLoading(true)
+    console.log(user_type,'user in 70')
     axios.post('http://localhost:8088/datatex/auth/signup',{
         email: email,
         password: password,
@@ -70,7 +75,8 @@ export const signup=async(name,employee_id,username,email,password,phone,address
         address:address,
         phone:phone,
         username:username,
-        employee_id:employee_id
+        employee_id:employee_id,
+        type:user_type
     }).then(res=>{
         console.log(res)
         if(res.status===404){
@@ -84,7 +90,8 @@ export const signup=async(name,employee_id,username,email,password,phone,address
         }
         else{
             console.log(res.data)
-            propes.nav(6)
+            showToast('You have created your account successfully')
+            propes.nav(5)
         }
 
     }).catch(err=>{
@@ -101,4 +108,69 @@ export const signup=async(name,employee_id,username,email,password,phone,address
     }).finally(()=>{
         setLoading(false)
     })
+}
+
+export const getProfile=async(id)=>{
+
+    //setLoading(true)
+    //console.log(gsm,'in get finishing time in admin')
+    try{
+        var result=await axios.post('http://localhost:8088/datatex/auth/profile', {
+            user_id:id
+        })
+
+        console.log(result.data)
+        //setLoading(false)
+        return  result.data
+    }catch (e) {
+        console.log(e)
+        //setLoading(false)
+        return false
+    }
+
+}
+
+export const updateDP=async(data)=>{
+
+    //setLoading(true)
+    //console.log(gsm,'in get finishing time in admin')
+    try{
+        var result=await axios.post('http://localhost:8088/datatex/auth/uploadPic', {
+            user_id:data.id,
+            image:data.image
+        })
+
+        console.log(result.data)
+        //setLoading(false)
+        return  true
+    }catch (e) {
+        console.log(e)
+        //setLoading(false)
+        return false
+    }
+
+}
+
+export const updateProfile=async(data)=>{
+
+    //setLoading(true)
+    //console.log(gsm,'in get finishing time in admin')
+    try{
+        var result=await axios.post('http://localhost:8088/datatex/auth/updateProfile', {
+            id:data.id,
+            username:data.username,
+            name:data.name,
+            phone:data.phone,
+            address:data.address
+        })
+
+        console.log(result.data)
+        //setLoading(false)
+        return  true
+    }catch (e) {
+        console.log(e)
+        //setLoading(false)
+        return false
+    }
+
 }

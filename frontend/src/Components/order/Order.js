@@ -59,10 +59,20 @@ function Order(props){
 
     async function rejectOrder(e) {
         console.log('in reject order in first line',e)
+        setLoading(true)
         let result=await updateApproveStatus(e,2)
         if(result){
+            var arr=[]
+            array.map(a=>{
+                if(a.FABRIC_ID!==e.FABRIC_ID)
+                    arr.push(a)
+            })
+            setArray(arr)
+            setLoading(false)
             showToast('Order is canceled')
+
         }else{
+            setLoading(false)
             showToast('Operation is unsuccessful')
         }
     }
@@ -84,12 +94,21 @@ function Order(props){
             approve_date:Date.now()/1000
         }
         console.log(data2,'in insertINtoApproval ')
+        setLoading(true)
         let result=await insertNewApprovedOrder(data2)
         if(result){
+            var arr=[]
+            array.map(a=>{
+                if(a.FABRIC_ID!==fabric)
+                    arr.push(a)
+            })
+            setArray(arr)
+            setLoading(false)
             showToast('Machine is assigned')
             setOrderDialog2(false)
             await fetchList()
         }else{
+            setLoading(false)
             showToast('Operation is unsuccessful')
 
         }
@@ -109,7 +128,7 @@ function Order(props){
                        </Button>
                    </DialogContent>
                </Dialog>
-               <Dialog open={orderDialog2}>
+               <Dialog open={orderDialog2} onClose={()=>{setOrderDialog2(false)}}>
                    <DialogTitle>
                        choose one
                    </DialogTitle>

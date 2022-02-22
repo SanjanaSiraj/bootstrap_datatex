@@ -20,7 +20,7 @@ class AdminController {
     deleteCard= async(req,res)=>{
         console.log(req.body)
         let result = await adminRepository.deleteCard(req.body)
-        console.log(result,'in delete card in admin contro')
+       // console.log(result,'in delete card in admin contro')
         if (result.success) {
             res.status(200).json({
                 success:true
@@ -34,7 +34,7 @@ class AdminController {
 
     getFabrics=async(req,res)=>{
         let result = await adminRepository.getFabrics(req.body)
-        console.log(result,'in get fabrics in admin controller')
+        //console.log(result,'in get fabrics in admin controller')
         if (result.success) {
             res.status(200).json({
                 success:true,
@@ -130,7 +130,7 @@ class AdminController {
     }
     getCatalogs = async(req, res) => {
         let result = await adminRepository.getCatalogs(req.body)
-        console.log(result,'in get catalogs in admin controller')
+        //console.log(result,'in get catalogs in admin controller')
         if (result.success) {
             res.status(200).json({
                 success:true,

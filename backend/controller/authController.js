@@ -118,6 +118,45 @@ class AuthController {
             });
         }
     }
+    updatePicture= async(req,res)=>{
+        let result = await authRepository.updatePicture(req.body)
+        if (result.success) {
+            res.status(200).json({
+                success:true
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+            });
+        }
+    }
+
+    updateProfile= async(req,res)=>{
+        let result = await authRepository.updateProfile(req.body)
+        if (result.success) {
+            res.status(200).json({
+                success:true
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+            });
+        }
+    }
+
+    getProfile= async(req,res)=>{
+        let result = await authRepository.getProfile(req.body)
+        if (result.success) {
+            res.status(200).json({
+                success:true,
+                result:result.data
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+            });
+        }
+    }
 
 }
 

@@ -93,22 +93,32 @@ function ProductionCard(props){
                                                     <b>
                                                         Approve date:
                                                     </b>
-                                                    {p.APPROVE_DATE}
+                                                    {new Date(p.APPROVE_DATE*1000).toLocaleString()}
                                                     <Divider light style={{width:'60%'}}/>
                                                     <b>
                                                         Production Start Date :
                                                     </b>
-                                                    {p.PROD_START_DATE}
+                                                    {new Date(p.PROD_START_DATE*1000).toLocaleString()}
                                                     <Divider light style={{width:'60%'}}/>
                                                     <b>
                                                         Production End Date :
                                                     </b>
-                                                    {p.PROD_END_DATE}
+                                                    {new Date(p.PROD_END_DATE*1000).toLocaleString()}
                                                     <Divider light style={{width:'60%'}}/>
                                                     <b>
                                                         Production Status :
                                                     </b>
-                                                    {p.PRODUCTION_STATUS}
+                                                    {
+                                                        p.PRODUCTION_STATUS===0?(
+                                                            <div>
+                                                                ON
+                                                            </div>
+                                                        ):(
+                                                            <div>
+                                                                OFF
+                                                            </div>
+                                                        )
+                                                    }
                                                     <Divider light style={{width:'60%'}}/>
                                                     <b>
                                                         Delivary Status :

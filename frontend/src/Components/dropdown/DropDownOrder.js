@@ -31,7 +31,7 @@ function DropDownOrder(props){
             </div>
             <Button variant={"outlined"}
                 onClick={() => {
-                    setPage(10)
+                    setPage(9)
                     console.log('clicked')
                 }}
             >

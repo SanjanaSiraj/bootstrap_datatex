@@ -151,7 +151,7 @@ export const insertNewProduction=async (data2)=>{
 }
 
 export const updateApproveStatus=async (data2,status)=>{
-    setLoading(true)
+
 
     try{
         var result=axios.post('http://localhost:8088/datatex/admin/setApprove', {
@@ -160,11 +160,11 @@ export const updateApproveStatus=async (data2,status)=>{
         })
 
         console.log(result)
-        setLoading(false)
+
         return  true
     }catch (e) {
         console.log(e)
-        setLoading(false)
+
         return false
     }
 }
@@ -190,7 +190,7 @@ export const getFinishingTime=async(gsm)=>{
 }
 
 export const insertNewApprovedOrder=async (data2)=>{
-    setLoading(true)
+
 
     try{
         var result=axios.post('http://localhost:8088/datatex/admin/getApproved', {
@@ -203,11 +203,11 @@ export const insertNewApprovedOrder=async (data2)=>{
         })
 
         console.log(result)
-        setLoading(false)
+
         return  true
     }catch (e) {
         console.log(e)
-        setLoading(false)
+
         return false
     }
 }
