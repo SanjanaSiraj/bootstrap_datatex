@@ -74,7 +74,7 @@ function LoginPage(propes){
                         <Navbar.Text style={{
                             marginLeft: '10px'
                         }}>|</Navbar.Text>
-                        <Button variant="dark" onClick={clickedPage1}>Log Out2</Button>
+                        <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
                     </Navbar.Collapse>
                 </div>
                 {/*</div>*/}
@@ -89,8 +89,8 @@ function LoginPage(propes){
                         <Button variant="dark" onClick={clickEmplyee} >Employee Records</Button>
                         <Button variant="dark" onClick={orderList} >Orders </Button>
                         <Button variant="dark" onClick={productionList}>Production Units</Button>
-                        <Button variant="dark" >Contact</Button>
                         <Button variant="dark" onClick={catalogList}>Products</Button>
+                        <Button variant="dark" >Sales</Button>
 
                     </div>
                 </Navbar>

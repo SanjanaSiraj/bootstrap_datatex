@@ -24,7 +24,7 @@
 }
 .content{
     height: calc(100vh - 97px);
-
+    overflow-y: hidden;
 }
 .me-2{
     width: 600px;
