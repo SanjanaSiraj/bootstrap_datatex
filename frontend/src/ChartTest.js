@@ -1,44 +1,40 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
-    BarElement,
+    PointElement,
+    LineElement,
     Title,
     Tooltip,
     Legend,
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
+
 
 
 ChartJS.register(
     CategoryScale,
     LinearScale,
-    BarElement,
+    PointElement,
+    LineElement,
     Title,
     Tooltip,
     Legend
 );
 
 export const options = {
-    indexAxis: 'y',
-    elements: {
-        bar: {
-            borderWidth: 2,
-        },
-    },
     responsive: true,
     plugins: {
         legend: {
-            position: 'right'
+            position: 'top',
         },
         title: {
             display: true,
-            text: 'Chart.js Horizontal Bar Chart',
+            text: 'Chart.js Line Chart',
         },
     },
 };
-
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
 export const data = {
@@ -59,6 +55,22 @@ export const data = {
     ],
 };
 
-export default function ChartTest() {
-    return <Bar options={options} data={data} />;
+const formatDate=date=>{
+    return date.toLocaleDateString(
+        'en-GB',{
+            day:'2-digit',
+            month:'short',
+            year:'numeric'
+        }
+    ).replace(/ /g,'-');
+}
+
+export default function Sales() {
+    useEffect(()=>{
+        const today = new Date()
+        const priorDate = new Date().setDate(today.getDate() - 30)
+        console.log(priorDate)
+        console.log(formatDate(priorDate))
+    },[])
+    return <Line options={options} data={data} />;
 }
