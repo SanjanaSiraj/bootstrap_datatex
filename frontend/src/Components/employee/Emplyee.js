@@ -177,7 +177,7 @@ function Emplyee(props){
     }
 
     return(
-        <div style={{padding:'30px',height:'100%'}}>
+        <div style={{padding:'30px',height:'calc(100vh - 90px)',overflowY:'scroll'}}>
             <Dialog open={orderDialog}>
                 <DialogTitle>
                     <Typography variant={"h6"} >
@@ -231,39 +231,39 @@ function Emplyee(props){
                 </div>
                 <br></br>
 
-                    <TableContainer >
-                        <Table stickyHeader aria-label="sticky table" striped={'true'} variant={'light'} hover={'true'}>
-                            <TableHead>
-                                <TableRow>
-                                    <th>ID</th>
-                                    <th>NAME</th>
-                                    <th>ADDRESS</th>
-                                    <th>PHONE</th>
-                                    <th>HIRE_DATE</th>
-                                    <th>SALARY</th>
-                                    <th style={{
-                                        textAlign: 'center'
-                                    }}> Actions</th>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {
-                                    array!==null?(
-                                        array.map(employee=>{
-                                            return(
-                                                <tr key = {employee.ID}>
-                                                    <td> {employee.ID}</td>
-                                                    <td> {employee.NAME}</td>
-                                                    <td>{employee.ADDRESS}</td>
-                                                    <td> {employee.PHONE}</td>
-                                                    <td> {new Date(employee.HIRE_DATE*1000).toLocaleString()}</td>
-                                                    <td> {employee.SALARY}</td>
-                                                    <td>
-                                                        <div style={{
-                                                            display:'flex',
-                                                            justifyContent: 'center',
-                                                            marginRight:'10px'
-                                                        }}>
+                <TableContainer >
+                    <Table stickyHeader aria-label="sticky table" striped={'true'} variant={'light'} hover={'true'}>
+                        <TableHead>
+                            <TableRow>
+                                <th>ID</th>
+                                <th>NAME</th>
+                                <th>ADDRESS</th>
+                                <th>PHONE</th>
+                                <th>HIRE_DATE</th>
+                                <th>SALARY</th>
+                                <th style={{
+                                    textAlign: 'center'
+                                }}> Actions</th>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {
+                                array!==null?(
+                                    array.map(employee=>{
+                                        return(
+                                            <tr key = {employee.ID}>
+                                                <td> {employee.ID}</td>
+                                                <td> {employee.NAME}</td>
+                                                <td>{employee.ADDRESS}</td>
+                                                <td> {employee.PHONE}</td>
+                                                <td> {new Date(employee.HIRE_DATE*1000).toLocaleString()}</td>
+                                                <td> {employee.SALARY}</td>
+                                                <td>
+                                                    <div style={{
+                                                        display:'flex',
+                                                        justifyContent: 'center',
+                                                        marginRight:'10px'
+                                                    }}>
                                                         <Button  variant={"contained"} className={'addEmp'} style={{borderRadius:15}} onClick={()=>{
                                                             //updateStaff(employee.ID,employee.NAME,employee.ADDRESS,employee.PHONE,employee.HIRE_DATE,employee.SALARY)
                                                             updatePromptCLick(employee)
@@ -271,19 +271,19 @@ function Emplyee(props){
                                                         <Button style={{marginLeft: "10px", borderRadius:15}}  color={'error'} variant={"contained"} className={'addEmp'} onClick={()=>{
                                                             deleteStaffCall(employee.ID)
                                                         }}>Delete </Button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            )
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        )
 
-                                        })
-                                    ):(
-                                        <LinearProgress/>
-                                    )
-                                }
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
+                                    })
+                                ):(
+                                    <LinearProgress/>
+                                )
+                            }
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </Box>
         </div>
     )

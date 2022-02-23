@@ -124,7 +124,9 @@ function Profile(props){
     }
 
     return(
-        <div>
+
+        <div style={{overflowY:'hidden'}}>
+
             <Dialog open={open}>
                 <DialogTitle>
                     <Typography variant={"h6"} >
@@ -169,64 +171,69 @@ function Profile(props){
                 </DialogActions>
             </Dialog>
 
-            {
-                array===null?(
-                    <div>
 
-                    </div>
-                ):(
-                    <div style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-                        <br/>
-                        <h2>Profile</h2>
-                        <br/>
-                        {
-                            im===null?(
-                                <img className={'leftImage'} src={profile}/>
-                            ):(
-                                <img className={'leftImage'} src={im}/>
-                            )
-                        }
 
-                        <input
-                            style={{display: "none"}}
-                            id="contained-button-file"
-                            type="file"
-                            onChange={onImageChange}
-                        />
-                        <br/>
+
+            <div style={{height:'calc(100vh - 90px)',overflowY:'scroll'}}>
+                {
+                    array===null?(
+                        <div>
+
+                        </div>
+                    ):(
                         <div style={{
                             display: 'flex',
-                            flexDirection: 'row',
+                            flexDirection: 'column',
                             justifyContent: 'center',
-                            alignItems: 'center'
+                            alignItems: 'center',
                         }}>
-                            <h3>{array[0].USERNAME}</h3>
-                            <button className="btn" onClick={updatep}><i className="fa fa-home"></i></button>
-                        </div>
-                        <h5>{array[0].NAME}</h5>
-                        <h5>{array[0].EMAIL}</h5>
-                        <h5>{array[0].PHONE}</h5>
-                        <h5>{array[0].ADDRESS}</h5>
-                        <div style={{display:"flex",justifyContent:"space-around"}}>
-                            <label htmlFor="contained-button-file">
-                                <Button variant="contained" color="primary" component="span" style={{marginTop: "10px",marginRight:'20px',borderRadius:15}}>
-                                    Upload Image
+                            <br/>
+                            <h2>Profile</h2>
+                            <br/>
+                            {
+                                im===null?(
+                                    <img className={'leftImage'} src={profile}/>
+                                ):(
+                                    <img className={'leftImage'} src={im}/>
+                                )
+                            }
+
+                            <input
+                                style={{display: "none"}}
+                                id="contained-button-file"
+                                type="file"
+                                onChange={onImageChange}
+                            />
+                            <br/>
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                alignItems: 'center'
+                            }}>
+                                <h3>{array[0].USERNAME}</h3>
+                                <button className="btn" onClick={updatep}><i className="fas fa-edit"></i></button>
+                            </div>
+                            <h5>{array[0].NAME}</h5>
+                            <h5>{array[0].EMAIL}</h5>
+                            <h5>{array[0].PHONE}</h5>
+                            <h5>{array[0].ADDRESS}</h5>
+                            <div style={{display:"flex",justifyContent:"space-around"}}>
+                                <label htmlFor="contained-button-file">
+                                    <Button variant="contained" color="primary" component="span" style={{marginTop: "10px",marginRight:'20px',borderRadius:15}}>
+                                        Upload Image
+                                    </Button>
+                                </label>
+                                <Button  onClick={upload} variant="contained" color="primary" component="span"  style={{marginTop: "10px",borderRadius:15}} >
+                                    Save Image
                                 </Button>
-                            </label>
-                            <Button  onClick={upload} variant="contained" color="primary" component="span"  style={{marginTop: "10px",borderRadius:15}} >
-                                Save Image
-                            </Button>
+                            </div>
+                            <br/>
+                            <br/>
                         </div>
-                        <br/>
-                        <br/>
-                    </div>
-                )
-            }
+                    )
+                }
+            </div>
             {/*<Grid container spacing={1}>
 
                 <Dialog open={open}>
@@ -246,6 +253,7 @@ function Profile(props){
 
                                     <Grid item xs={6}>
                                         <TextField variant={"standard"} label={"Name"} fullWidth inputRef={nameRef} defaultValue={array[0].NAME}/>
+
                                     </Grid>
                                     <Grid item xs={6}>
                                         <TextField variant={"standard"} label={"Address"} fullWidth inputRef={addressRef} defaultValue={array[0].ADDRESS}/>
@@ -254,6 +262,7 @@ function Profile(props){
                                         <TextField variant={"standard"} label={"Phone"} fullWidth inputRef={phoneRef} defaultValue={array[0].PHONE}/>
                                     </Grid>
                                     <Grid item xs={6}>
+
                                         <TextField variant={"standard"} label={"Username"} fullWidth  inputRef={usernameRef} defaultValue={array[0].USERNAME}/>
                                     </Grid>
                                 </Grid>

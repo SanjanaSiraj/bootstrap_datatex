@@ -1,3 +1,4 @@
+
 import React, {useEffect, useState} from 'react';
 import {
     Chart as ChartJS,
@@ -40,6 +41,7 @@ export const options = {
         y: {
             beginAtZero: true
         }
+
     }
 };
 

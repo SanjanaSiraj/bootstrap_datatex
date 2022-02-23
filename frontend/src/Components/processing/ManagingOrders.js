@@ -5,6 +5,8 @@ import {getUserId, getUserName, logout} from "../../action/auth";
 import {updateAuth} from "../../Route";
 import Container from "react-bootstrap/Container";
 import './ManagingOrder.css'
+import '../Assets/bootstrap.min.css'
+
 import {
     get2OrdersAxios,
     get3OrdersAxios,
@@ -36,6 +38,10 @@ function ManagingOrders(props){
         return activeStep === totalSteps() - 1;
     };
 
+    const clickedbACK=()=>{
+        console.log('clicked')
+        props.nav(7)
+    };
 
     const handleNext = () => {
         const newActiveStep =
@@ -143,10 +149,40 @@ function ManagingOrders(props){
     },[])*/
     return(
         <div style={{
-          padding:'20px'
+          overflowY:'hidden'
         }
         }>
-            <div>
+            <Navbar bg="dark" variant="dark" style={{height:'80px'}}>
+                <Container style={{
+                    display: 'flex',
+                    flexDirection: 'row'
+                }}>
+                    <Button variant="dark" onClick={clickedbACK} style={{color:'white'}}>Back</Button>
+                    <Button variant="dark" className={'Brand'}>D datatex</Button>
+                    <Navbar.Toggle />
+                    <Navbar.Collapse className="justify-content-end">
+                        <Navbar.Text>
+                            Signed in as: <a href="#login">{username}</a>
+                        </Navbar.Text>
+                        <Navbar.Text style={{
+                            marginLeft: '10px'
+                        }}>|</Navbar.Text>
+                        <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
+                        {/*<Button variant="dark" onClick={()=>{
+                            {
+                                open===false?(
+                                    setOpen(true)
+                                ):(
+                                    setOpen(false)
+                                )
+                            }
+                        }}>
+                            <AllInboxRoundedIcon/>
+                        </Button>*/}
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+            <div style={{padding:'20px'}}>
                 <Paper style={{
                     padding:"15px"
                 }}>
@@ -255,16 +291,15 @@ function ManagingOrders(props){
 
                     </Grid>
                 </div>
-                <div className={"main-container"}>
+                <div className={'main-container'}>
                     <Button
                         color="inherit"
                         disabled={activeStep === 0}
                         onClick={handleBack}
-
                     >
                         Back
                     </Button>
-                    <Button onClick={handleNext} >
+                    <Button onClick={handleNext}>
                         Next
                     </Button>
                 </div>

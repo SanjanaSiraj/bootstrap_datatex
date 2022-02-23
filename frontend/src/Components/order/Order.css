@@ -1,9 +1,13 @@
 .container-order{
-    height: calc(100vh - 80px);
+    height: calc(100vh - 90px);
     overflow-y: scroll;
 }
 
 .item-click:hover{
     background-color: #0098ff44;
     cursor: pointer;
+}
+
+.orderClass{
+    overflow-y: hidden;
 }

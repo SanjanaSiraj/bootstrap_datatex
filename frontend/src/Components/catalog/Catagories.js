@@ -46,7 +46,7 @@ function Catagories(props){
                     display: 'flex',
                     flexDirection: 'row'
                 }}>
-                    <Button variant={"outline-primary"} onClick={clickedbACK}>back</Button>
+                    <Button variant={"outline-primary"} onClick={clickedbACK}>Back</Button>
                     <Button variant="dark" className={'Brand'}>D datatex</Button>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
@@ -57,7 +57,7 @@ function Catagories(props){
                             marginLeft: '10px'
                         }}>|</Navbar.Text>
                         <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
-                        <Button variant="dark" onClick={()=>{
+                        {/*<Button variant="dark" onClick={()=>{
                             {
                                 open===false?(
                                     setOpen(true)
@@ -67,7 +67,7 @@ function Catagories(props){
                             }
                         }}>
                             <AllInboxRoundedIcon/>
-                        </Button>
+                        </Button>*/}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

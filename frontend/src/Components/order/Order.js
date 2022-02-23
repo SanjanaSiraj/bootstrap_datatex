@@ -115,7 +115,22 @@ function Order(props){
     }
 
     return(
-        <div >
+        <div className={'orderClass'}>
+            {/*<div>
+                {array2===null?(
+                    <div>nothing</div>
+                ):(
+                    <div>
+                        {
+                            array2.map(p=>{
+                                return(
+                                    <div>{p.id}</div>
+                                )
+                            })
+                        }
+                    </div>
+                )}
+            </div>*/}
            <Grid container spacing={2} className={'container-order'}>
                <Dialog open={orderDialog}>
                    <DialogTitle>
