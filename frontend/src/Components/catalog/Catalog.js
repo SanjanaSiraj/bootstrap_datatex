@@ -19,7 +19,11 @@ function Catalog(propes){
         propes.nav(1)
     }
     const clickedPageO=()=>{
-        propes.routeProfile()
+        propes.nav(12)
+    }
+
+    function clickedPage2() {
+        propes.nav(13)
     }
 
     /*useEffect(()=>{
@@ -40,7 +44,7 @@ function Catalog(propes){
                 <Container>
                     <Button variant="dark" className={'Brand'}>D datatex</Button>
                     <Navbar.Toggle />
-                    <Button variant={'outline-secondary'} style={{color:'#0dcaf0',marginRight:'20px',width:'100px'}} onClick={clickedPageO}>
+                    <Button variant={'outline-secondary'} style={{color:'#0dcaf0',marginRight:'20px',width:'100px'}} onClick={clickedPage2}>
                         Profile
                     </Button>
                     <Button variant={'outline-secondary'} style={{color:'#0dcaf0'}} onClick={clickedPageO}>
