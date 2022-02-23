@@ -19,7 +19,7 @@ function Catalog(propes){
         propes.nav(1)
     }
     const clickedPageO=()=>{
-        propes.nav(12)
+        propes.routeProfile()
     }
 
     /*useEffect(()=>{

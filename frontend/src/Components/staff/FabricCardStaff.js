@@ -52,9 +52,7 @@ function FabricCardStaff(props){
                     <br/>
                 </Typography>
             </CardContent>
-            <CardActions disableSpacing>
-                <Chip label="RATING" variant="outlined" disabled={true} style={{marginLeft:'auto'}} />
-            </CardActions>
+
         </Card>
     )
 }

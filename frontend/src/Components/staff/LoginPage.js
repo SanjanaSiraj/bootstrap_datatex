@@ -108,7 +108,7 @@ function LoginPage(propes){
                             ) : (
                                 menu === 3 ? (
                                     <div>
-                                        <Order/>
+                                        <Order isAdmin={false}/>
                                     </div>
                                 ):(
                                     menu===4?(
