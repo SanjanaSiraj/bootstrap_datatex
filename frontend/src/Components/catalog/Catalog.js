@@ -19,7 +19,7 @@ function Catalog(propes){
         propes.nav(1)
     }
     const clickedPageO=()=>{
-        propes.nav(11)
+        propes.nav(12)
     }
 
     /*useEffect(()=>{
@@ -40,8 +40,11 @@ function Catalog(propes){
                 <Container>
                     <Button variant="dark" className={'Brand'}>D datatex</Button>
                     <Navbar.Toggle />
+                    <Button variant={'outline-secondary'} style={{color:'#0dcaf0',marginRight:'20px',width:'100px'}} onClick={clickedPageO}>
+                        Profile
+                    </Button>
                     <Button variant={'outline-secondary'} style={{color:'#0dcaf0'}} onClick={clickedPageO}>
-                        Orders
+                        My Orders
                     </Button>
                     <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>

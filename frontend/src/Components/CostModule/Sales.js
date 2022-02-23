@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 
 
 class Sales extends Component {
-    constructor(props) {
+    /*constructor(props) {
         super(props);
         this.state = {
             chartData: {
@@ -19,12 +19,12 @@ class Sales extends Component {
                 ]
             }
         };
-    }
+    }*/
 
     render() {
         return (
             <div className="chart">
-                <Line
+                {/*<Line
                     data={this.state.chartData}
                     options={{
                         maintainAspectRatio: false,
@@ -33,7 +33,7 @@ class Sales extends Component {
                             display: false
                         }
                     }}
-                />
+                />*/}
             </div>
         );
     }

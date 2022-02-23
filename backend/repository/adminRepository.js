@@ -147,7 +147,8 @@ class AdminRepository extends Repository {
     }
 
     getSales=async(data)=>{
-        const query='select id, from transaction'
+        const query='Begin Debit; End;/' +
+            'select id from transaction'
         const params=[]
         var result=await this.sqlQuery(query,params)
         console.log(result,'in get sales in admin repo')

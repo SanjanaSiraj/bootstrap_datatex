@@ -19,7 +19,7 @@ import Profile from "../profile/Profile";
 
 function AfterLogin(propes){
 
-    const[menu,setmenu]=useState(6)
+    const[menu,setmenu]=useState(7)
 
     const [username, setUsername] = useState(getUserName)
 
@@ -80,7 +80,7 @@ function AfterLogin(propes){
                             <Navbar.Text style={{
                                 marginLeft: '10px'
                             }}>|</Navbar.Text>
-                            <Button variant="dark" onClick={clickedPage1}>Log Out2</Button>
+                            <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
                         </Navbar.Collapse>
                     </div>
                 {/*</div>*/}
@@ -104,7 +104,7 @@ function AfterLogin(propes){
                 <div style={{width: '100%'}} className={'content'} id={'test2'}>
                     {
                         menu === 1 ? (
-                            <div style={{marginTop: '20px'}} className={'menu-fitting'}>
+                            <div className={'menu-fitting'}>
                                 <AddCatalog className={'add-catalog'}/>
                             </div>
                         ) : (

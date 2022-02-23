@@ -35,7 +35,7 @@ function Contact(propes){
                     <Nav className="me-auto">
                         <Button variant="dark" onClick={clickedPage2}>About</Button>
                         <Button variant="dark" onClick={clickedPage3}>Contact</Button>
-                        <Button variant="dark" onClick={clickedPage7}>Products</Button>
+
                     </Nav>
                     <Nav>
                         <Button variant="dark" onClick={clickedPage4}>Sign Up</Button>

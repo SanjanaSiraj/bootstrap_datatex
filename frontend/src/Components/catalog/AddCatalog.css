@@ -4,9 +4,22 @@
     box-sizing: border-box;
     height: 150px;
     width: 150px;
+
 }
 
 .main-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    height: calc(100vh - 90px);
+}
+
+.catalogScroll{
+    padding-left: 50px;
+    width: 90%;
+}
+
+.secondScroll{
+    overflow-y: scroll;
+    width: calc(100vw - 8vw);
 }

@@ -21,7 +21,7 @@ function ProductionCard(props){
     },[])
     return(
         <div>
-            <Card elevation={3} style={{border:'2px solid darkorange',boxShadow:'5px 10px 18px #888888',borderRadius:'50ppx'}}>
+            <Card elevation={3} style={{border:'2px solid darkorange',boxShadow:'5px 10px 18px #888888',borderRadius:'50ppx',marginInlineStart:'40px',width:'70vw'}}>
                 <CardContent>
                     <b>
                         Production_unit_id:

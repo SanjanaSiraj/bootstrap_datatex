@@ -164,7 +164,7 @@ class AuthRepository extends Repository{
         const query='select * from users where id=:0'
         const params=[data.user_id]
         const result=await this.sqlQuery(query,params)
-        //console.log(result,'in getProfile in auth repository cls')
+        console.log(result,'in getProfile in auth repository cls')
         return result
     }
 

@@ -1,9 +1,14 @@
 .main-container{
-
     position: fixed;
     bottom: 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: calc(100vw - 40px);
+    width: calc(100vw - 60px);
+}
+.Brand{
+    font-family: "Kunstler Script";
+    color: #0dcaf0;
+    font-size: 30px;
+    margin-right: 30px;
 }
