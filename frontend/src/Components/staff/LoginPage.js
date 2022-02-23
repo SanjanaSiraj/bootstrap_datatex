@@ -36,10 +36,6 @@ function LoginPage(propes){
         console.log(menu)
     }, [menu])
 
-    function createCatalog() {
-        setmenu(1)
-    }
-
     function orderList() {
         setmenu(3)
     }
@@ -98,7 +94,7 @@ function LoginPage(propes){
                     {
                         menu === 1 ? (
                             <div>
-                                menu1
+                                none
                             </div>
                         ) : (
                             menu === 2 ? (
@@ -121,9 +117,15 @@ function LoginPage(propes){
                                                 <StaffCatalog/>
                                             </div>
                                         ):(
-                                            <div>
-                                                <Profile/>
-                                            </div>
+                                            menu===6?(
+                                                <div>
+                                                    <Profile/>
+                                                </div>
+                                            ):(
+                                                <div>
+
+                                                </div>
+                                            )
                                         )
                                     )
                                 )
