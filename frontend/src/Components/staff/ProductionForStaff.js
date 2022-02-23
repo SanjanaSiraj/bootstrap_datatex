@@ -38,8 +38,8 @@ function ProductionForStaff(props){
     },[])
 
     return(
-        <div>
-            <Box style={{overflowY:'scroll',paddingTop:'40px',paddingBottom:'40px'}}>
+        <div style={{height:'calc(100vh - 97px)',overflowY:'scroll',paddingTop:'40px',paddingBottom:'40px'}}>
+            <Box>
                 <Grid container spacing={2} style={{}}>
                     {
                         array===null?(

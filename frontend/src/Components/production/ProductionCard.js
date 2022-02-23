@@ -29,11 +29,6 @@ function ProductionCard(props){
                     {props.data.PRODUCTION_UNIT_ID}
                     <Divider light style={{width:'60%'}}/>
                     <b>
-                        Run Status :
-                    </b>
-                    {props.data.RUN_STATUS}
-                    <Divider light style={{width:'60%'}}/>
-                    <b>
                         SetUp Cost:
                     </b>
                     {props.data.SETUP_COST}

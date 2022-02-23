@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import {Box, Button, Divider, Grid, Paper, Step, StepButton, Stepper, Typography} from "@mui/material";
-import {Navbar} from "react-bootstrap";
+import {Box, Divider, Grid, Paper, Step, StepButton, Stepper, Typography} from "@mui/material";
+import {Navbar,Button} from "react-bootstrap";
 import {getUserId, getUserName, logout} from "../../action/auth";
 import {updateAuth} from "../../Route";
 import Container from "react-bootstrap/Container";
@@ -290,18 +290,6 @@ function ManagingOrders(props){
                         }
 
                     </Grid>
-                </div>
-                <div className={'main-container'}>
-                    <Button
-                        color="inherit"
-                        disabled={activeStep === 0}
-                        onClick={handleBack}
-                    >
-                        Back
-                    </Button>
-                    <Button onClick={handleNext}>
-                        Next
-                    </Button>
                 </div>
             </div>
         </div>
