@@ -67,7 +67,7 @@ function StaffCatalog(props){
     }
 
     return(
-        <div style={{padding:'10px'}}>
+        <div style={{padding:'10px',overflowY:'scroll'}}>
             <Box>
                 <Paper
                     component="form"

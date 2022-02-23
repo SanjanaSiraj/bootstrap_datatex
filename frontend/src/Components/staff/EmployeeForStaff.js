@@ -25,7 +25,7 @@ function EmployeeForStaff(props){
     },[])
 
     return(
-        <div style={{padding:'30px',height:'100%'}}>
+        <div style={{padding:'30px',height:'100%',overflowY:'scroll'}}>
             <Box style={{height:'100%'}}>
                 <h2 className="heading" style={{}}>Employees List</h2>
 

@@ -39,7 +39,7 @@ function ProductionForStaff(props){
 
     return(
         <div>
-            <Box>
+            <Box style={{overflowY:'scroll',paddingTop:'40px',paddingBottom:'40px'}}>
                 <Grid container spacing={2} style={{}}>
                     {
                         array===null?(
