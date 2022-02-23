@@ -47,7 +47,6 @@ function Home(propes) {
                     <Nav className="me-auto">
                         <Button variant="dark" onClick={clickedPage2}>About</Button>
                         <Button variant="dark" onClick={clickedPage3}>Contact</Button>
-                        <Button variant="dark" onClick={clickedPage7}>Products</Button>
                     </Nav>
                     <Nav>
                         <Button variant="dark" onClick={clickedPage4}>Sign Up</Button>
@@ -60,7 +59,7 @@ function Home(propes) {
             <div style={{
                 display:"flex",
                 flexDirection:"row-reverse",
-                height:'calc(100vh-200px)'
+                height:'calc(100vh)'
             }}>
                 <Carousel variant="dark"  className={'carousel-image'}>
                     <Carousel.Item interval={2000}>
@@ -68,10 +67,9 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo1}
                             alt="Logo"
-                            height= 'calc(100vh-200px)' />
+                            height= 'calc(100vh)' />
                         <Carousel.Caption>
-                            <h5>First slide label</h5>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item interval={2000}>
@@ -79,10 +77,9 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo2}
                             alt="Logo"
-                            height='calc(100vh-200px)'/>
+                            height='calc(100vh)'/>
                         <Carousel.Caption>
-                            <h5>Second slide label</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item interval={2000}>
@@ -90,11 +87,10 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo3}
                             alt="Logo"
-                            height='calc(100vh-200px)'
+                            height='calc(100vh)'
                         />
                         <Carousel.Caption>
-                            <h5>Third slide label</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item interval={2000}>
@@ -102,11 +98,10 @@ function Home(propes) {
                             className="d-block w-100"
                             src= {logo4}
                             alt="Logo"
-                            height='calc(100vh-200px)'
+                            height='calc(100vh)'
                         />
                         <Carousel.Caption>
-                            <h5>Fourth slide label</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>

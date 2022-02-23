@@ -76,72 +76,76 @@ function AddCatalog(propes){
 
     return(
         <div className={'main-container'}>
-            <Box style={{width:'80%',padding:'10px'}}>
-                <Typography variant="h5" component="h2"style={{textAlign:'center'}}>
-                    CREATE CATALOG
-                </Typography>
-                <Form style={{ alignSelf:'center',
-                    marginTop: '20px'}} onSubmit={handleFireBaseUpload}>
-                    <Form.Group className="mb-3" controlId="formBasicName">
-                        <Form.Label>Color Name</Form.Label>
-                        <Form.Control ref={colorRef} type='text' placeholder="Enter Color Name" />
-                    </Form.Group>
-
-                    <Form.Group controlId="pricePerGsm">
-                        <Form.Label>Price per gsm:</Form.Label>
-                        <Form.Control ref={priceRef} type="number" placeholder="Price " name="price"/>
-                    </Form.Group>
-
-                    <Form.Group controlId="weaveId">
-                        <Form.Label>Weave Design</Form.Label>
-                        <Form.Select placeholder={"Type of weave design"} ref={weaveRef}>
-                            <option style={{
-                                marginTop: '10px'
-                            }}>Plain</option>
-                            <option style={{
-                                marginTop: '5px'
-                            }}>Twill</option>
-                            <option style={{
-                                marginTop: '5px'
-                            }}>Satin</option>
-                            <option style={{
-                                marginTop: '5px'
-                            }}>Dobby</option>
-                            <option style={{
-                                marginTop: '5px'
-                            }}>Chiffon</option>
-                        </Form.Select>
-                    </Form.Group>
-
-                    <Typography variant="h6" component="h2"style={{marginTop:'20px'}}>
-                        Select Image
+            <div className={'secondScroll'}>
+                <Box style={{marginTop:'50px',paddingInlineStart:'80px'}} className={'catalogScroll'}>
+                    <Typography variant="h5" component="h2"style={{textAlign:'center'}}>
+                        CREATE CATALOG
                     </Typography>
-                    <form style={{marginBottom:'20px'}}>
-                        <input
-                            type="file"
-                            onChange={handleImageAsFile}
-                        />
+                    <Form style={{ alignSelf:'center',
+                        marginTop: '50px'}} onSubmit={handleFireBaseUpload}>
+                        <Form.Group className="mb-3" controlId="formBasicName">
+                            <Form.Label>Color Name</Form.Label>
+                            <Form.Control ref={colorRef} type='text' placeholder="Enter Color Name" />
+                        </Form.Group>
 
-                    </form>
-                </Form>
+                        <Form.Group controlId="pricePerGsm">
+                            <Form.Label>Price per gsm:</Form.Label>
+                            <Form.Control ref={priceRef} type="number" placeholder="Price " name="price"/>
+                        </Form.Group>
 
-                <div className='image'>
-                    {
-                        preview===undefined?(
-                            <Typography variant="h6" component="h2" style={{padding:'10px',textAlign:'center'}}>
-                                No image is selected
-                            </Typography>
-                        ):(
-                            <img src={preview} alt="image tag"  className='image'style={{height:'148px',width:'148px'}}/>
-                        )
-                    }
-                </div>
+                        <Form.Group controlId="weaveId">
+                            <Form.Label>Weave Design</Form.Label>
+                            <Form.Select placeholder={"Type of weave design"} ref={weaveRef}>
+                                <option style={{
+                                    marginTop: '10px'
+                                }}>Plain</option>
+                                <option style={{
+                                    marginTop: '5px'
+                                }}>Twill</option>
+                                <option style={{
+                                    marginTop: '5px'
+                                }}>Satin</option>
+                                <option style={{
+                                    marginTop: '5px'
+                                }}>Dobby</option>
+                                <option style={{
+                                    marginTop: '5px'
+                                }}>Chiffon</option>
+                            </Form.Select>
+                        </Form.Group>
 
-                <br/>
-                <Button variant="dark" type="submit" style={{marginTop:'20px'}} onClick={handleFireBaseUpload}>
-                    Add to Catalog
-                </Button>
-            </Box>
+                        <Typography variant="h6" component="h2"style={{marginTop:'20px'}}>
+                            Select Image
+                        </Typography>
+                        <form style={{marginBottom:'20px'}}>
+                            <input
+                                type="file"
+                                onChange={handleImageAsFile}
+                            />
+
+                        </form>
+                    </Form>
+
+                    <div className='image'>
+                        {
+                            preview===undefined?(
+                                <Typography variant="h6" component="h2" style={{padding:'10px',textAlign:'center'}}>
+                                    No image is selected
+                                </Typography>
+                            ):(
+                                <img src={preview} alt="image tag"  className='image'style={{height:'148px',width:'148px'}}/>
+                            )
+                        }
+                    </div>
+
+                    <br/>
+                    <Button variant="dark" type="submit" style={{marginTop:'20px'}} onClick={handleFireBaseUpload}>
+                        Add to Catalog
+                    </Button>
+                    <br/>
+                    <br/>
+                </Box>
+            </div>
         </div>
     )
 }

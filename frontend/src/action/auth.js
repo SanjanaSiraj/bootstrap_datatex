@@ -49,7 +49,7 @@ export const login=async (email, password,propes)=>{
          else if(res.data.type===1)
              setPage(6)
          else{
-             setPage(10)
+             setPage(11)
          }
 
     }).catch(err=>{

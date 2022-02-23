@@ -77,7 +77,7 @@ function Production(props){
     }
 
     return(
-        <div>
+        <div style={{height:'calc(100vh - 90px)',overflowY:'scroll'}}>
             <Dialog open={open1}>
                 <DialogTitle>
                     Create New Production
@@ -117,7 +117,7 @@ function Production(props){
                 </DialogActions>
             </Dialog>
             <Box>
-                <Grid container spacing={2} style={{}}>
+                <Grid container spacing={2} style={{marginTop:'30px',marginBottom:'30px'}}>
                     {
                         array===null?(
                             <div>

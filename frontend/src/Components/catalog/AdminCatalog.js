@@ -67,7 +67,7 @@ function AdminCatalog(props){
     }
 
     return(
-        <div style={{padding:'10px'}}>
+        <div style={{padding:'10px',height:'calc(100vh - 90px)',overflowY:'scroll'}}>
             <Box>
                 <Paper
                     component="form"

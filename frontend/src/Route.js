@@ -46,7 +46,7 @@ function Route(){
 
     return(
         <div>
-            {/*{
+            {
                 pageState===1?(
                     <Home nav={setState}/>
                 ):(
@@ -79,7 +79,7 @@ function Route(){
 
                                                         <Sales nav={{setState}}/>
                                                     ):(
-                                                        pagestate===11?(
+                                                        pageState===11?(
 
                                                         <LoginPage nav={setState}/>
                                                         ):(
@@ -96,9 +96,8 @@ function Route(){
                         )
                     )
                 )
-            }*/}
-
-        <ChartTest/>
+                )
+            }
 
         </div>
     )
