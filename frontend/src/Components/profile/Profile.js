@@ -124,7 +124,9 @@ function Profile(props){
     }
 
     return(
+
         <div style={{overflowY:'hidden'}}>
+
             <Dialog open={open}>
                 <DialogTitle>
                     <Typography variant={"h6"} >
@@ -168,6 +170,9 @@ function Profile(props){
                     </Button>
                 </DialogActions>
             </Dialog>
+
+
+
 
             <div style={{height:'calc(100vh - 90px)',overflowY:'scroll'}}>
                 {
@@ -248,6 +253,7 @@ function Profile(props){
 
                                     <Grid item xs={6}>
                                         <TextField variant={"standard"} label={"Name"} fullWidth inputRef={nameRef} defaultValue={array[0].NAME}/>
+
                                     </Grid>
                                     <Grid item xs={6}>
                                         <TextField variant={"standard"} label={"Address"} fullWidth inputRef={addressRef} defaultValue={array[0].ADDRESS}/>
@@ -256,6 +262,7 @@ function Profile(props){
                                         <TextField variant={"standard"} label={"Phone"} fullWidth inputRef={phoneRef} defaultValue={array[0].PHONE}/>
                                     </Grid>
                                     <Grid item xs={6}>
+
                                         <TextField variant={"standard"} label={"Username"} fullWidth  inputRef={usernameRef} defaultValue={array[0].USERNAME}/>
                                     </Grid>
                                 </Grid>

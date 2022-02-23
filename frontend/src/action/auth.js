@@ -114,6 +114,7 @@ export const getProfile=async(id)=>{
 
     //setLoading(true)
     //console.log(gsm,'in get finishing time in admin')
+    console.log(id,'in 117 auth')
     try{
         var result=await axios.post('http://localhost:8088/datatex/auth/profile', {
             user_id:id
