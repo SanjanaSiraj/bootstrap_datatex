@@ -19,7 +19,7 @@ import Profile from "../profile/Profile";
 
 function AfterLogin(propes){
 
-    const[menu,setmenu]=useState(7)
+    const[menu,setmenu]=useState(6)
 
     const [username, setUsername] = useState(getUserName)
 

@@ -44,6 +44,7 @@ export const login=async (email, password,propes)=>{
          cookies.set('type',res.data.type,{ path: '/', maxAge: COOKIE_AGE })
          cookies.set('user_id',res.data.user_id,{ path: '/', maxAge: COOKIE_AGE })
          //checkAuth(dispatcher)
+
          if(res.data.type===3)
              setPage(7)
          else if(res.data.type===1)

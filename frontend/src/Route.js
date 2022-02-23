@@ -33,8 +33,10 @@ function Route(){
         if(checkAuth()){
             if(getUserType()==='3'){
                 setState(7)
-            }else{
+            }else if(getUserType()==='1'){
                 setState(6)
+            }else{
+                setState(11)
             }
         }else{
             setState(1)
@@ -43,6 +45,8 @@ function Route(){
     useEffect(()=>{
         updateAuth()
     },[])
+
+
 
     const callProfile=()=>{
         setPage(13)

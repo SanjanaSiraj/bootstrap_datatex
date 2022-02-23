@@ -148,12 +148,18 @@ class AdminRepository extends Repository {
 
     getSales=async(data)=>{
 
-        const query='select dates,sum(nvl(debit,0)) as debit  from transaction group by dates order by dates desc'
-
-        const params=[]
-        var result=await this.sqlQuery(query,params)
-        console.log(result,'in get sales in admin repo')
-        return result
+        var query1=`
+            BEGIN
+                DEBIT; 
+            END;
+        `
+        const params1=[]
+        var result1=await this.sqlQuery(query1,params1)
+        var query2='select to_char(DATES,\'DD/MM/YYYY\') as id ,sum(nvl(debit,0)) as debit, sum(nvl(credit,0)) as credit from transaction group by dates order by dates desc'
+        const params2=[]
+        var result2=await this.sqlQuery(query2,params2)
+        console.log(result2,'in get sales in admin repo')
+        return result2
     }
 
 }
