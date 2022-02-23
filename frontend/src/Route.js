@@ -16,6 +16,7 @@ import Sales from "./Components/CostModule/Sales";
 import LoginPage from "./Components/staff/LoginPage";
 import ManagingOrders from "./Components/processing/ManagingOrders";
 import ChartTest from "./ChartTest";
+import Profile from "./Components/profile/Profile";
 
 
 
@@ -43,7 +44,9 @@ function Route(){
         updateAuth()
     },[])
 
-
+    const callProfile=()=>{
+        setPage(13)
+    }
     return(
         <div>
             {
@@ -67,11 +70,11 @@ function Route(){
                                         <SignIn nav={setState} />
                                     ):(
                                         pageState===7?(
-                                            <Catalog nav={setState} setFabricType={setDataFromSibling} type={dataFromSibling}/>
+                                            <Catalog nav={setState} setFabricType={setDataFromSibling} type={dataFromSibling} routeProfile={callProfile}/>
                                         ):(
                                             pageState===8?(
                                                 <Catagories nav={setState} type={dataFromSibling}/>
-                                                ):(
+                                            ):(
                                                 pageState===9?(
                                                     <AllOrder nav={{setState}}/>
                                                 ):(
@@ -81,26 +84,27 @@ function Route(){
                                                     ):(
                                                         pageState===11?(
 
-                                                        <LoginPage nav={setState}/>
+                                                            <LoginPage nav={setState}/>
                                                         ):(
-                                                            <ManagingOrders nav={setState}/>
+                                                            pageState===12?(
+                                                                <ManagingOrders nav={setState}/>
+                                                            ):(
+                                                                <Profile  guest={true} nav={setState}/>
+                                                            )
+                                                        )
                                                     )
                                                 )
-                                                )
 
+                                            )
                                         )
                                     )
-                                )
 
+                                )
                             )
                         )
                     )
-                    )
-                )
-
                 )
             }
-
 
         </div>
     )

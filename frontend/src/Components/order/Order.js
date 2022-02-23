@@ -334,16 +334,26 @@ function Order(props){
                                                <Divider light style={{padding:'0px',margin:'0px'}} />
                                                <br/>
 
-                                               <Button variant={"contained"} color={'success'} onClick={()=>{
-                                                   acceptOrder(order)
-                                               }}>
-                                                   ACCEPT
-                                               </Button>
-                                               <Button variant={"contained"} color={'error'} onClick={()=>{
-                                                   rejectOrder(order)
-                                               }}>
-                                                   REJECT
-                                               </Button>
+                                               {
+                                                   props.isAdmin===false?(
+                                                       <div>
+
+                                                       </div>
+                                                   ):(
+                                                       <div>
+                                                           <Button variant={"contained"} color={'success'} onClick={()=>{
+                                                               acceptOrder(order)
+                                                           }}>
+                                                               ACCEPT
+                                                           </Button>
+                                                           <Button variant={"contained"} color={'error'} onClick={()=>{
+                                                               rejectOrder(order)
+                                                           }}>
+                                                               REJECT
+                                                           </Button>
+                                                       </div>
+                                                   )
+                                               }
                                            </Grid>
                                            <Grid item xs={3}>
                                                {

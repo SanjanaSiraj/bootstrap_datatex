@@ -13,23 +13,29 @@ import {
 import profile from '../Images/profile.jpg'
 import {getCatalogs} from "../../action/buyer";
 import {setLoading, showToast} from "../../App";
-import {getProfile, getUserId, getUserType, updateDP, updateProfile} from "../../action/auth";
+import {getProfile, getUserId, getUserName, getUserType, logout, updateDP, updateProfile} from "../../action/auth";
 import './profile.css'
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {DesktopDatePicker, LocalizationProvider} from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import Container from "react-bootstrap/Container";
+import {Navbar} from "react-bootstrap";
+import {updateAuth} from "../../Route";
 function Profile(props){
     const [array,setArray]=useState(null)
     const [image, setImage] = useState(null)
     const [imagePreview, setImagePreview] = useState(null)
     const [open,setOpen]=useState(false)
     const [im,setIm]=useState(null)
-
+    const [username,setUsername]=useState(getUserName())
     const nameRef=useRef()
     const usernameRef=useRef()
     const phoneRef=useRef()
     const addressRef=useRef()
-
+    const clickedbACK=()=>{
+        console.log('clicked')
+        props.nav(7)
+    };
 
     useEffect(async ()=>{
         setLoading(true)
@@ -123,9 +129,51 @@ function Profile(props){
 
     }
 
-    return(
+    function clickedPage1() {
+        logout()
+        updateAuth()
+    }
 
+    return(
         <div style={{overflowY:'hidden'}}>
+            {
+                props.guest===true?(
+                    <Navbar bg="dark" variant="dark" style={{height:'80px'}}>
+                        <Container style={{
+                            display: 'flex',
+                            flexDirection: 'row'
+                        }}>
+                            <Button variant="dark" onClick={clickedbACK} style={{color:'white'}}>Back</Button>
+                            <Button variant="dark" className={'Brand'}>D datatex</Button>
+                            <Navbar.Toggle />
+                            <Navbar.Collapse className="justify-content-end">
+                                <Navbar.Text>
+                                    Signed in as: <a href="#login">{username}</a>
+                                </Navbar.Text>
+                                <Navbar.Text style={{
+                                    marginLeft: '10px'
+                                }}>|</Navbar.Text>
+                                <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
+                                {/*<Button variant="dark" onClick={()=>{
+                            {
+                                open===false?(
+                                    setOpen(true)
+                                ):(
+                                    setOpen(false)
+                                )
+                            }
+                        }}>
+                            <AllInboxRoundedIcon/>
+                        </Button>*/}
+                            </Navbar.Collapse>
+                        </Container>
+                    </Navbar>
+                ):(
+                    <div>
+
+                    </div>
+                )
+            }
 
             <Dialog open={open}>
                 <DialogTitle>
@@ -170,9 +218,6 @@ function Profile(props){
                     </Button>
                 </DialogActions>
             </Dialog>
-
-
-
 
             <div style={{height:'calc(100vh - 90px)',overflowY:'scroll'}}>
                 {
@@ -234,159 +279,6 @@ function Profile(props){
                     )
                 }
             </div>
-            {/*<Grid container spacing={1}>
-
-                <Dialog open={open}>
-                    <DialogTitle>
-                        <Typography variant={"h6"} >
-                            Update Profile
-                        </Typography>
-                    </DialogTitle>
-                    <DialogContent>
-                        {
-                            array===null?(
-                                <div>
-
-                                </div>
-                            ):(
-                                <Grid container spacing={1} style={{marginTop:'7px'}}>
-
-                                    <Grid item xs={6}>
-                                        <TextField variant={"standard"} label={"Name"} fullWidth inputRef={nameRef} defaultValue={array[0].NAME}/>
-
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <TextField variant={"standard"} label={"Address"} fullWidth inputRef={addressRef} defaultValue={array[0].ADDRESS}/>
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        <TextField variant={"standard"} label={"Phone"} fullWidth inputRef={phoneRef} defaultValue={array[0].PHONE}/>
-                                    </Grid>
-                                    <Grid item xs={6}>
-
-                                        <TextField variant={"standard"} label={"Username"} fullWidth  inputRef={usernameRef} defaultValue={array[0].USERNAME}/>
-                                    </Grid>
-                                </Grid>
-                            )
-                        }
-
-
-                    </DialogContent>
-
-                    <DialogActions>
-                        <Button color={"secondary"} onClick={onClickedBack}>
-                            Cancel
-                        </Button>
-                        <Button color={"primary"} onClick={updatingStart} >
-                            Submit
-                        </Button>
-                    </DialogActions>
-                </Dialog>
-                <Grid item xs={0} md={6} >
-                    <center className={'leftContainer'}>
-                        <Typography variant="h2" gutterBottom component="div">
-                            My Profile
-                        </Typography>
-                        {
-                            im===null?(
-                                <img className={'leftImage'} src={profile}/>
-                            ):(
-                                <img className={'leftImage'} src={im}/>
-                            )
-                        }
-
-                        <input
-                            style={{display: "none"}}
-                            id="contained-button-file"
-                            type="file"
-                            onChange={onImageChange}
-                        />
-                        <div style={{display:"flex",justifyContent:"space-around"}}>
-                            <label htmlFor="contained-button-file">
-                                <Button variant="contained" color="primary" component="span" style={{marginTop: "10px",marginRight:'20px'}}>
-                                    Upload Image
-                                </Button>
-                            </label>
-                            <Button  onClick={upload} variant="contained" color="primary" component="span"  style={{marginTop: "10px"}} >
-                                Save Image
-                            </Button>
-                        </div>
-
-
-                    </center>
-                </Grid>
-                <Grid item xs={12} md={6}className={'rightContainer'}>
-                    <Paper  style={{width:'100%',height:"100%"}} >
-                        <div style={{padding:'20px',width:'100%',height:"100%"}}className={'paper'}>
-                            {
-                                array===null?(
-                                    <div>
-                                        Nothing
-                                    </div>
-                                ):(
-
-                                    <Grid container spacing={2}>
-                                        <Grid item xs={12}>
-                                            <Paper style={{padding:'8px'}}>
-                                                <Typography variant={"h6"} >
-                                                    Name:{array[0].NAME}
-                                                </Typography>
-                                            </Paper>
-                                        </Grid>
-                                        <Grid item xs={12}>
-                                            <Paper style={{padding:'8px'}}>
-                                                <Typography variant={"h6"}>
-                                                    Username:{array[0].USERNAME}
-                                                </Typography>
-                                            </Paper>
-                                        </Grid>
-                                        {
-                                            array[0].EMPLOYEE_ID===null?(
-                                                <div>
-                                                </div>
-                                            ):(
-                                                <Grid item xs={12}>
-                                                    <Paper style={{padding:'8px'}} >
-                                                        <Typography variant={"h6"}>
-                                                            Employee Id:{array[0].EMPLOYEE_ID}
-                                                        </Typography>
-                                                    </Paper>
-                                                </Grid>
-                                            )
-                                        }
-
-                                        <Grid item xs={12}>
-                                            <Paper style={{padding:'8px'}}>
-                                                <Typography variant={"h6"}>
-                                                    Phone:{array[0].PHONE}
-                                                </Typography>
-                                            </Paper>
-                                        </Grid>
-                                        <Grid item xs={12}>
-                                            <Paper style={{padding:'8px'}}>
-                                                <Typography variant={"h6"}>
-                                                    Email:{array[0].EMAIL}
-                                                </Typography>
-                                            </Paper>
-                                        </Grid>
-                                        <Grid item xs={12}>
-                                            <Paper style={{padding:'8px'}}>
-                                                <Typography variant={"h6"}>
-                                                    Address:{array[0].ADDRESS}
-                                                </Typography>
-                                            </Paper>
-                                        </Grid>
-                                        <Grid item xs={12}>
-                                            <Button  onClick={updatep} variant="contained" color="primary" component="span"  style={{marginTop: "10px",marginLeft:"auto"}} >
-                                                Update
-                                            </Button>
-                                        </Grid>
-                                    </Grid>
-                                )
-                            }
-                        </div>
-                    </Paper>
-                </Grid>
-            </Grid>*/}
         </div>
     )
 }
