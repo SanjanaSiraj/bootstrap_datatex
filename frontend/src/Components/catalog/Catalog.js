@@ -16,10 +16,10 @@ function Catalog(propes){
     const[username,setUsername]=useState(getUserName)
 
     const clickedPage1=()=>{
-        propes.nav(1)
+        propes.nav(12)
     }
     const clickedPageO=()=>{
-        propes.routeProfile()
+        propes.nav(13)
     }
 
     /*useEffect(()=>{
@@ -43,7 +43,7 @@ function Catalog(propes){
                     <Button variant={'outline-secondary'} style={{color:'#0dcaf0',marginRight:'20px',width:'100px'}} onClick={clickedPageO}>
                         Profile
                     </Button>
-                    <Button variant={'outline-secondary'} style={{color:'#0dcaf0'}} onClick={clickedPageO}>
+                    <Button variant={'outline-secondary'} style={{color:'#0dcaf0'}} onClick={clickedPage1}>
                         My Orders
                     </Button>
                     <Navbar.Collapse className="justify-content-end">

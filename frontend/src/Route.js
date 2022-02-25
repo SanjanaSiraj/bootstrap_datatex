@@ -93,7 +93,7 @@ function Route(){
                                                             pageState===12?(
                                                                 <ManagingOrders nav={setState}/>
                                                             ):(
-                                                                <profil nav={setState}/>
+                                                                <Profile nav={setState} guest={true}/>
                                                             )
                                                         )
                                                     )
@@ -115,5 +115,3 @@ function Route(){
 }
 export default Route
 export {setPage,passData,updateAuth}
-
-

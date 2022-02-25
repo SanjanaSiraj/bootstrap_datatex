@@ -19,7 +19,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import {DesktopDatePicker, LocalizationProvider} from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import Container from "react-bootstrap/Container";
-import {Navbar} from "react-bootstrap";
+import {Navbar,Button as Btn} from "react-bootstrap";
 import {updateAuth} from "../../Route";
 function Profile(props){
     const [array,setArray]=useState(null)
@@ -60,7 +60,7 @@ function Profile(props){
         if (image !== null) {
             console.log('before get storeage ref')
             const storage = getStorage();
-            const storageRef = ref(storage, `images/${image.name}`);
+            const storageRef = ref(storage, 'images/${image.name}');
             const uploadTask = uploadBytesResumable(storageRef, image);
 
             uploadTask.on('state_changed',
@@ -143,8 +143,8 @@ function Profile(props){
                             display: 'flex',
                             flexDirection: 'row'
                         }}>
-                            <Button variant="dark" onClick={clickedbACK} style={{color:'white'}}>Back</Button>
-                            <Button variant="dark" className={'Brand'}>D datatex</Button>
+                            <Btn variant="dark" onClick={clickedbACK} style={{color:'white'}}>Back</Btn>
+                            <Btn variant="dark" className={'Brand'}>D datatex</Btn>
                             <Navbar.Toggle />
                             <Navbar.Collapse className="justify-content-end">
                                 <Navbar.Text>
@@ -153,18 +153,18 @@ function Profile(props){
                                 <Navbar.Text style={{
                                     marginLeft: '10px'
                                 }}>|</Navbar.Text>
-                                <Button variant="dark" onClick={clickedPage1}>Log Out</Button>
-                                {/*<Button variant="dark" onClick={()=>{
-                            {
-                                open===false?(
-                                    setOpen(true)
-                                ):(
-                                    setOpen(false)
-                                )
-                            }
-                        }}>
-                            <AllInboxRoundedIcon/>
-                        </Button>*/}
+                                <Btn variant="dark" onClick={clickedPage1}>Log Out</Btn>
+                                <Btn variant="dark" onClick={()=>{
+                                    {
+                                        open===false?(
+                                            setOpen(true)
+                                        ):(
+                                            setOpen(false)
+                                        )
+                                    }
+                                }}>
+
+                                </Btn>
                             </Navbar.Collapse>
                         </Container>
                     </Navbar>

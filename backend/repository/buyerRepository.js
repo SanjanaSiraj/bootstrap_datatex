@@ -45,7 +45,7 @@ class BuyerRepository extends Repository {
     }
 
     getFabrics=async(data)=>{
-        const query='select * from fabric where user_id=:0 and remove_status=:1'
+        const query='select * from fabric where user_id=:0 and remove_status=:1 order by ORDER_DATE'
         const params=[data.user_id,0]
         try{
             const result=await this.sqlQuery(query,params)
@@ -59,7 +59,7 @@ class BuyerRepository extends Repository {
 
     getAllOrders=async(data)=>{
         const query='SELECT M.IMAGE,M.FABRIC_ID,F.COLOR_ID,F.COTTON_PCT,F.POLYESTER_PCT,F.RAYON_PCT,F.TENCIL_PCT,F.VISCOSE_PCT,F.LYCRA_PCT,F.GSM_WEIGHT,F.TOTAL_PRICE ' +
-            'FROM MY_ORDERS M JOIN FABRIC F ON (M.FABRIC_ID=F.FABRIC_ID) WHERE M.USER_ID=:0'
+            'FROM MY_ORDERS M JOIN FABRIC F ON (M.FABRIC_ID=F.FABRIC_ID) WHERE M.USER_ID=:0 order by F.ORDER_DATE'
         const params=[data.user_id]
         try{
             const result=await this.sqlQuery(query,params)
@@ -72,7 +72,7 @@ class BuyerRepository extends Repository {
     getApprovedNotStartOrders=async(data)=>{
         console.log(data.user_id,'in buyer repo')
         const query='SELECT M.IMAGE,M.FABRIC_ID,F.COLOR_ID,F.COTTON_PCT,F.POLYESTER_PCT,F.RAYON_PCT,F.TENCIL_PCT,F.VISCOSE_PCT,F.LYCRA_PCT,F.GSM_WEIGHT,F.TOTAL_PRICE ' +
-            'FROM MY_ORDERS M JOIN FABRIC F ON (M.FABRIC_ID=F.FABRIC_ID) WHERE M.USER_ID=:0 and M.PROD_START_DATE>:1'
+            'FROM MY_ORDERS M JOIN FABRIC F ON (M.FABRIC_ID=F.FABRIC_ID) WHERE M.USER_ID=:0 and M.PROD_START_DATE>:1 order by F.ORDER_DATE'
         const params=[data.user_id,Date.now()/1000]
         try{
             const result=await this.sqlQuery(query,params)
