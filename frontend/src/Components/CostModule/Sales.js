@@ -180,7 +180,7 @@ function Sales(props){
         var total2=0
         var arr=[]
 
-        if(l1>l2|| l2>Date.now()){
+        if(l1>l2|| l2>Date.now()||l1< new Date(new Date().setDate(today.getDate() - 50)).getTime()){
             showToast('check upper and lower bound')
         }
         else{

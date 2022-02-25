@@ -93,7 +93,7 @@ function Route(){
                                                             pageState===12?(
                                                                 <ManagingOrders nav={setState}/>
                                                             ):(
-                                                                <Profile  guest={true} nav={setState}/>
+                                                                <profil nav={setState}/>
                                                             )
                                                         )
                                                     )
