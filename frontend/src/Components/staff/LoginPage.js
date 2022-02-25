@@ -16,6 +16,8 @@ import EmployeeForStaff from "./EmployeeForStaff";
 import ProductionForStaff from "./ProductionForStaff";
 import StaffCatalog from "./StaffCatalog";
 import Profile from "../profile/Profile";
+import ProfileNavbar from "../profile/ProfileNavbar";
+import Sales from "../CostModule/Sales";
 function LoginPage(propes){
 
     const[menu,setmenu]=useState(6)
@@ -52,6 +54,10 @@ function LoginPage(propes){
         setmenu(5)
     }
 
+    function clickedsales() {
+        setmenu(7)
+    }
+
     return (
         <div style={{}}>
             <Navbar bg="dark" variant="dark" style={{height: '80px'}} id={'test3'} className={"d-flex justify-content-between"}>
@@ -86,7 +92,7 @@ function LoginPage(propes){
                         <Button variant="dark" onClick={orderList} >Orders </Button>
                         <Button variant="dark" onClick={productionList}>Production Units</Button>
                         <Button variant="dark" onClick={catalogList}>Products</Button>
-                        <Button variant="dark" >Sales</Button>
+                        <Button variant="dark" onClick={clickedsales}>Sales</Button>
 
                     </div>
                 </Navbar>
@@ -123,7 +129,7 @@ function LoginPage(propes){
                                                 </div>
                                             ):(
                                                 <div>
-
+                                                    <Sales/>
                                                 </div>
                                             )
                                         )

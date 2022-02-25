@@ -340,8 +340,8 @@ function Order(props){
 
                                                        </div>
                                                    ):(
-                                                       <div>
-                                                           <Button variant={"contained"} color={'success'} onClick={()=>{
+                                                       <div style={{display:'flex',flexDirection:'row',justifyContent:'center'}}>
+                                                           <Button variant={"contained"} color={'success'} style={{marginRight:'30px'}} onClick={()=>{
                                                                acceptOrder(order)
                                                            }}>
                                                                ACCEPT

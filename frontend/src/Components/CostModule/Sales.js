@@ -12,7 +12,7 @@ import {
 import { Line } from 'react-chartjs-2';
 import {getSales} from "../../action/admin";
 import {setLoading, showToast} from "../../App";
-import {Button, TextField, Typography} from "@mui/material";
+import {Button, Card, CardContent, TextField, Typography} from "@mui/material";
 import {DesktopDatePicker, LocalizationProvider} from "@mui/lab";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 
@@ -36,7 +36,7 @@ export const options = {
         },
         title: {
             display: true,
-            text: 'Chart.js Line Chart',
+            text: 'Company Performance Graph',
         },
     },
     scales: {
@@ -77,6 +77,7 @@ function Sales(props){
     const [date2,setDate2]=useState(Date.now())
     const[profit,setProfit]=useState(0)
     const[loss,setloss]=useState(0)
+    const [net,setnet]=useState(0)
     const [data,setData]=useState({
         labels,
         datasets: [
@@ -132,7 +133,7 @@ function Sales(props){
 
         setProfit(total2)
         setloss(total1)
-
+        setnet(total2-total1)
         console.log(arr)
 
       /*  for(var i=0;i<30;i++){
@@ -146,12 +147,12 @@ function Sales(props){
                 {
                     label: 'Debit',
                     data: arr.map((d)=>d.DEBIT),
-                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                    backgroundColor: 'rgba(255, 0, 0, 1)',
                 },
                 {
                     label: 'Credit',
                     data: arr.map((d)=>d.CREDIT),
-                    backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                    backgroundColor: 'rgba(0, 0, 255, 1)',
                 },
             ],
         }
@@ -180,8 +181,8 @@ function Sales(props){
         var total2=0
         var arr=[]
 
-        if(l1>l2|| l2>Date.now()||l1< new Date(new Date().setDate(today.getDate() - 50)).getTime()){
-            showToast('check upper and lower bound')
+        if(l1>l2|| l2>Date.now()||l1< new Date(new Date().setDate(today.getDate() - 54)).getTime()){
+            showToast('Choose Date between today and 01 Jan,2022')
         }
         else{
             array.map((d)=>{
@@ -201,6 +202,7 @@ function Sales(props){
 
             setProfit(total2)
             setloss(total1)
+            setnet(total2-total1)
             console.log(arr)
 
             /*  for(var i=0;i<30;i++){
@@ -232,17 +234,51 @@ function Sales(props){
     return (
 
         <div style={{padding:'20px',height:'calc(100vh - 97px)',overflowY:"scroll"}}>
+            <div style={{display:'flex',flexDirection:'row'}}>
+                <Card>
+                    <CardContent>
+                        <div style={{display:'flex',flexDirection:'row',padding:'10px'}}>
+                            <div style={{display:'flex',flexDirection:'column'}}>
+                                <h3>Profit</h3>
+                                <h5>Within selected range</h5>
+                                <h6>Default value: last 30 days</h6>
+                            </div>
+                            <h1 style={{color:'green'}}>{profit}</h1>
+                        </div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardContent>
+                        <div style={{display:'flex',flexDirection:'row',padding:'10px'}}>
+                            <div style={{display:'flex',flexDirection:'column'}}>
+                                <h3>Loss</h3>
+                                <h5>Within selected range</h5>
+                                <h6>Default value: last 30 days</h6>
+                            </div>
+                            <h1 style={{color:'red'}}>{loss}</h1>
+                        </div>
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardContent>
+                        <div style={{display:'flex',flexDirection:'row',padding:'10px'}}>
+                            <div style={{display:'flex',flexDirection:'column'}}>
+                                <h3>Net Profit</h3>
+                                <h5>Within selected range</h5>
+                                <h6>Default value: last 30 days</h6>
+                            </div>
+                            <h1 style={{color:'yellow'}}>{net}</h1>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+            <br/>
             <div style={{display:"flex"}}>
 
                 <Typography variant="h5" style={{marginRight:'20px'}}>
-                    You can choose range maximum 30 days
+                    You can choose range maximum 50 days
                 </Typography>
-                <span style={{marginRight:"auto"}}>
-                Profit:{profit}
-                </span>
-                <span style={{marginRight:"auto"}}>
-                Loss:{loss}
-                </span>
+
             </div>
 
             <div>
