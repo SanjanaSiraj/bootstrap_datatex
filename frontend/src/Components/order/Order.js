@@ -245,7 +245,7 @@ function Order(props){
                    ):(
                        array.map(order=>{
                            return(
-                               <Grid item xs={4}>
+                               <Grid item xs={7}>
                                    <Paper style={{padding:'10px'}}>
                                        <Grid container spacing={1}>
                                            <Grid item xs={9}>
